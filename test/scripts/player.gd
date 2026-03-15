@@ -7,7 +7,6 @@ var start_position: Vector2  # Stores the spawn point
 const ACCELERATION = 450.0
 const FRICTION = 600.0
 const MIN_JUMP_CUT = -75.0
-
 func _ready() -> void:
 	start_position = global_position  # Save starting position on launch
 
