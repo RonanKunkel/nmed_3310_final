@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 
 const SPEED = 105.0
-const JUMP_VELOCITY = -250.0
+const JUMP_VELOCITY = -275.0
 var start_position: Vector2  # Stores the spawn point
 const ACCELERATION = 450.0
 const FRICTION = 600.0
+const MIN_JUMP_CUT = -75.0
 
 func _ready() -> void:
 	start_position = global_position  # Save starting position on launch
@@ -18,7 +19,9 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	if Input.is_action_just_released("ui_accept"):
+		if velocity.y  < MIN_JUMP_CUT:
+			velocity.y = MIN_JUMP_CUT 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
