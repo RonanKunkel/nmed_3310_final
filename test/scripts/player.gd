@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var anim = $AnimatedSprite2D
 
 const SPEED = 105.0
 const JUMP_VELOCITY = -275.0
@@ -31,6 +31,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, FRICTION * delta)
 
 	move_and_slide()
+	
+	if velocity == Vector2.ZERO:
+		anim.play("Idle")
+	else: 
+		anim.play("Walk")
+		
+	if velocity.x < 0:
+		anim.flip_h = true
+	elif velocity.x > 0:
+		anim.flip_h = false
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
