@@ -3390,9 +3390,9 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="PointLight2D" type="PointLight2D" parent="player" unique_id=1481964294]
-position = Vector2(-1, -21.000002)
-scale = Vector2(6.576723, 5.1444306)
-color = Color(1, 0.6039216, 0.19215687, 1)
+position = Vector2(-1.9999981, -21)
+scale = Vector2(7.334836, 5.9776645)
+color = Color(1, 0.3372549, 0, 1)
 energy = 1.98
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_lbhrr")
