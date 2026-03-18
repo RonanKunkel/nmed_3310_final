@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var candle = $PointLight2D
 
 const SPEED = 105.0
-const JUMP_VELOCITY = -275.0
+const JUMP_VELOCITY = -291.75
 const ACCELERATION = 450.0
 const FRICTION = 600.0
 const MIN_JUMP_CUT = -75.0
