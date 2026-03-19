@@ -1,18 +1,25 @@
 [gd_scene format=3 uid="uid://unrns6mt7l4f"]
 
 [ext_resource type="Texture2D" uid="uid://calpko210rcse" path="res://assets/sprites/Spike.png" id="1_hhfv5"]
+[ext_resource type="PackedScene" uid="uid://qfuoxa8e4b6" path="res://scenes/killzone.tscn" id="2_vae4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1y00"]
-size = Vector2(30.867468, 1.6723411)
+size = Vector2(30.867468, 16.723408)
 
-[node name="spikes type shi" type="AnimatableBody2D" unique_id=1911062457]
+[node name="Node2D" type="Node2D" unique_id=801085471]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=698462207]
+[node name="spikes type shi" type="AnimatableBody2D" parent="." unique_id=1911062457]
+
+[node name="Sprite2D" type="Sprite2D" parent="spikes type shi" unique_id=698462207]
 texture = ExtResource("1_hhfv5")
 region_enabled = true
 region_rect = Rect2(160, 0, 32, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=628336877]
-position = Vector2(0, -12.5)
-scale = Vector2(1.0366902, 1.793892)
+[node name="Area2D" parent="spikes type shi" unique_id=1105578825 instance=ExtResource("2_vae4h")]
+position = Vector2(0, -12.500003)
+scale = Vector2(1.0366902, 1.7938923)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes type shi/Area2D" unique_id=628336877]
+position = Vector2(0, 7.5255394)
+scale = Vector2(1.0000004, 1.0000002)
 shape = SubResource("RectangleShape2D_a1y00")
