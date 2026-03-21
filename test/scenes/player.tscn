@@ -68,7 +68,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
 radius = 7.0
 
-[node name="player" type="CharacterBody2D" unique_id=632898850]
+[node name="player" type="CharacterBody2D" unique_id=632898850 groups=["player"]]
 z_index = 3
 script = ExtResource("1_g2els")
 
