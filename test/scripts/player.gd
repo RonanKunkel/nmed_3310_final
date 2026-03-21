@@ -22,6 +22,8 @@ var camera_start_offset: Vector2
 var light_y := 0.0
 var target_light_y := 0.0
 var target_camera_y := 0.0
+var is_dead = false
+
 
 func _ready() -> void:
 	start_position = global_position
@@ -91,3 +93,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == self:
 		global_position = Vector2(0, -128)
 		velocity = Vector2.ZERO
+		
+		
+func die() :
+	if is_dead : return
+	is_dead = true
+	velocity = Vector2.ZERO
+	
+	
