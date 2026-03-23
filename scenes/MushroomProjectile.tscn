@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cgwfk6c10faqw"]
 
 [ext_resource type="Script" uid="uid://1i5rdo7y8bu7" path="res://scripts/mushroomprojectile.gd" id="1_niqsm"]
-[ext_resource type="Texture2D" uid="uid://picx70h72gh3" path="res://assets/sprites/Projectile-test.png" id="1_porr8"]
+[ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="1_porr8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_porr8"]
-size = Vector2(21, 24)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_niqsm"]
+size = Vector2(11.75, 16.75)
 
 [node name="Node2D" type="Node2D" unique_id=125072654]
 
@@ -12,16 +12,16 @@ size = Vector2(21, 24)
 script = ExtResource("1_niqsm")
 
 [node name="Muzzle" type="Marker2D" parent="CharacterBody2D" unique_id=1395090635]
-position = Vector2(-14, -7)
+position = Vector2(13, 3)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1638212218]
 texture = ExtResource("1_porr8")
 region_enabled = true
-region_rect = Rect2(54, 6, 25, 26)
+region_rect = Rect2(3, 5, 26, 21)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1789778245]
-position = Vector2(1.5, 0)
-shape = SubResource("RectangleShape2D_porr8")
+position = Vector2(-3, -1.625)
+shape = SubResource("RectangleShape2D_niqsm")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=2040829453]
 wait_time = 2.86

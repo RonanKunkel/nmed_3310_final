@@ -3876,8 +3876,8 @@ position = Vector2(96, 25)
 libraries/ = SubResource("AnimationLibrary_kvpfn")
 autoplay = &"spikes"
 
-[node name="mushroom" parent="." unique_id=125072654 instance=ExtResource("6_p57ef")]
-position = Vector2(432, 29)
+[node name="Dragon" parent="." unique_id=125072654 instance=ExtResource("6_p57ef")]
+position = Vector2(357, 26)
 
 [node name="sliding door" parent="." unique_id=79721929 instance=ExtResource("7_u5sy4")]
 position = Vector2(573, -49)
