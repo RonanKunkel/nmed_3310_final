@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://epkpjx4nmts8" path="res://scenes/platform.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://unrns6mt7l4f" path="res://scenes/spikes_type_shi.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cgwfk6c10faqw" path="res://scenes/MushroomProjectile.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://l7vts5xfddfh" path="res://scenes/sliding_door.tscn" id="7_u5sy4"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
 texture = ExtResource("1_lbhrr")
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -527,13 +528,13 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_lnu2h")
+sources/0 = SubResource("TileSetAtlasSource_gee14")
 
-[sub_resource type="Gradient" id="Gradient_lnu2h"]
+[sub_resource type="Gradient" id="Gradient_0tnpc"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lbhrr"]
-gradient = SubResource("Gradient_lnu2h")
+gradient = SubResource("Gradient_0tnpc")
 width = 86
 height = 86
 fill = 1
@@ -544,7 +545,8 @@ fill_to = Vector2(0.8333333, 0.6596244)
 distance = -50.0
 
 [sub_resource type="Animation" id="Animation_p57ef"]
-length = 0.001
+length = 0.8333333
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -552,10 +554,39 @@ tracks/0/path = NodePath("../spikes type shi:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.033333335),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(96, 25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../sliding door:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(573, -49)]
+}
+
+[sub_resource type="Animation" id="Animation_gee14"]
+resource_name = "door animation"
+length = 5.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../sliding door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.02, 2.61, 2.91),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(573, -49), Vector2(573, -77.73), Vector2(573, -48.445)]
 }
 
 [sub_resource type="Animation" id="Animation_u5sy4"]
@@ -578,10 +609,11 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gee14"]
 _data = {
 &"RESET": SubResource("Animation_p57ef"),
+&"door animation": SubResource("Animation_gee14"),
 &"spike animation": SubResource("Animation_u5sy4")
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vtaks"]
 texture = ExtResource("1_lbhrr")
 0:0/0 = 0
 1:0/0 = 0
@@ -3657,7 +3689,83 @@ texture = ExtResource("1_lbhrr")
 38:83/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_iywne"]
-sources/0 = SubResource("TileSetAtlasSource_lbhrr")
+sources/0 = SubResource("TileSetAtlasSource_vtaks")
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96, 25)]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "spikes"
+length = 3.0333333
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.93, 1.23, 1.53),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(96, 25), Vector2(96, 3.445), Vector2(96, 24.29)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvpfn"]
+_data = {
+&"RESET": SubResource("Animation_0tnpc"),
+&"spikes": SubResource("Animation_vtaks")
+}
+
+[sub_resource type="Animation" id="Animation_kvpfn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(573, -49)]
+}
+
+[sub_resource type="Animation" id="Animation_dinhu"]
+resource_name = "animateddoor"
+length = 5.0333333
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.0333333, 2.64, 2.93),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(573, -49), Vector2(573, -82.09), Vector2(573, -48.525)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvuet"]
+_data = {
+&"RESET": SubResource("Animation_kvpfn"),
+&"animateddoor": SubResource("Animation_dinhu")
+}
 
 [node name="game" type="Node2D" unique_id=491776932]
 
@@ -3708,7 +3816,7 @@ position = Vector2(-48, -51)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform2" unique_id=1793745489]
 libraries/ = SubResource("AnimationLibrary_gee14")
-autoplay = &"spike animation"
+autoplay = &"RESET"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1414454004]
 use_parent_material = true
@@ -3726,7 +3834,18 @@ layer_0/tile_data = PackedInt32Array(-2949207, 65536, 1, -2883671, 65536, 1, -28
 [node name="spikes type shi" parent="." unique_id=1911062457 instance=ExtResource("5_iywne")]
 position = Vector2(96, 25)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="spikes type shi" unique_id=1080930955]
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+autoplay = &"spikes"
+
 [node name="mushroom" parent="." unique_id=125072654 instance=ExtResource("6_p57ef")]
 position = Vector2(432, 29)
+
+[node name="sliding door" parent="." unique_id=79721929 instance=ExtResource("7_u5sy4")]
+position = Vector2(573, -49)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="sliding door" unique_id=318366209]
+libraries/ = SubResource("AnimationLibrary_kvuet")
+autoplay = &"animateddoor"
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
