@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://4ljg1cel8tit" path="res://scenes/platform.gd" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://unrns6mt7l4f" path="res://scenes/spikes_type_shi.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cgwfk6c10faqw" path="res://scenes/MushroomProjectile.tscn" id="6_p57ef"]
-[ext_resource type="Script" uid="uid://fh68tuc68x17" path="res://scripts/lever.gd" id="7_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_lbhrr")
@@ -3661,8 +3660,6 @@ texture = ExtResource("1_lbhrr")
 [sub_resource type="TileSet" id="TileSet_iywne"]
 sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_u5sy4"]
-
 [node name="game" type="Node2D" unique_id=491776932]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1016579802]
@@ -3734,14 +3731,5 @@ position = Vector2(96, 25)
 
 [node name="mushroom" parent="." unique_id=125072654 instance=ExtResource("6_p57ef")]
 position = Vector2(432, 29)
-
-[node name="Lever" type="Area2D" parent="." unique_id=400963198]
-position = Vector2(21, 3)
-script = ExtResource("7_u5sy4")
-
-[node name="Sprite2D" type="Sprite2D" parent="Lever" unique_id=55291813]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lever" unique_id=1705177349]
-shape = SubResource("CircleShape2D_u5sy4")
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
