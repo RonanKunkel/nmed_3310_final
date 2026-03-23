@@ -23,7 +23,7 @@ var light_y := 0.0
 var target_light_y := 0.0
 var target_camera_y := 0.0
 var is_dead = false
-
+var has_key = false
 
 func _ready() -> void:
 	start_position = global_position
