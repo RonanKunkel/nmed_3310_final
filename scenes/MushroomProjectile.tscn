@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cgwfk6c10faqw"]
+
+[ext_resource type="Script" uid="uid://1i5rdo7y8bu7" path="res://scripts/mushroomprojectile.gd" id="1_niqsm"]
+[ext_resource type="Texture2D" uid="uid://picx70h72gh3" path="res://assets/sprites/Projectile-test.png" id="1_porr8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_porr8"]
+size = Vector2(21, 24)
+
+[node name="Node2D" type="Node2D" unique_id=125072654]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=984488463 groups=["player"]]
+script = ExtResource("1_niqsm")
+
+[node name="Muzzle" type="Marker2D" parent="CharacterBody2D" unique_id=1395090635]
+position = Vector2(-14, -7)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1638212218]
+texture = ExtResource("1_porr8")
+region_enabled = true
+region_rect = Rect2(54, 6, 25, 26)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1789778245]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_porr8")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=2040829453]
+wait_time = 2.86
+autostart = true
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
