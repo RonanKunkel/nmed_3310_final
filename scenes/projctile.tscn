@@ -32,8 +32,7 @@ rotation = -1.5707964
 shape = SubResource("RectangleShape2D_gjmc2")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=63421159]
-visible = false
-position = Vector2(-6, 4.0000014)
+position = Vector2(9, 4)
 scale = Vector2(1.9873904, 0.9594298)
 color = Color(1, 0.63529414, 0.24313726, 1)
 texture = SubResource("GradientTexture2D_qni05")
