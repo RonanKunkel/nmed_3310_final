@@ -3871,10 +3871,10 @@ position = Vector2(573, -49)
 libraries/ = SubResource("AnimationLibrary_kvuet")
 autoplay = &"animateddoor"
 
-[node name="Area2D2" parent="." unique_id=329355976 instance=ExtResource("8_gee14")]
+[node name="key" parent="." unique_id=329355976 instance=ExtResource("8_gee14")]
 position = Vector2(279, -31)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D2" unique_id=1902078040]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="key" unique_id=1902078040]
 libraries/ = SubResource("AnimationLibrary_trtic")
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
