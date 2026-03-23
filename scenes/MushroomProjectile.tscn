@@ -1,10 +1,48 @@
 [gd_scene format=3 uid="uid://cgwfk6c10faqw"]
 
 [ext_resource type="Script" uid="uid://1i5rdo7y8bu7" path="res://scripts/mushroomprojectile.gd" id="1_niqsm"]
-[ext_resource type="Texture2D" uid="uid://picx70h72gh3" path="res://assets/sprites/Projectile-test.png" id="1_porr8"]
+[ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="1_porr8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_porr8"]
-size = Vector2(21, 24)
+[sub_resource type="Animation" id="Animation_niqsm"]
+resource_name = "Dragon_Fire"
+length = 2.86
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_dwnmp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fdg4b"]
+_data = {
+&"Dragon_Fire": SubResource("Animation_niqsm"),
+&"RESET": SubResource("Animation_dwnmp")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_niqsm"]
+size = Vector2(11, 16.75)
 
 [node name="Node2D" type="Node2D" unique_id=125072654]
 
@@ -12,16 +50,24 @@ size = Vector2(21, 24)
 script = ExtResource("1_niqsm")
 
 [node name="Muzzle" type="Marker2D" parent="CharacterBody2D" unique_id=1395090635]
-position = Vector2(-14, -7)
+position = Vector2(5, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1638212218]
+position = Vector2(0.73706853, 0)
+scale = Vector2(0.97977453, 1)
 texture = ExtResource("1_porr8")
+hframes = 2
 region_enabled = true
-region_rect = Rect2(54, 6, 25, 26)
+region_rect = Rect2(3, 5, 52, 21)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1715545931]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_fdg4b")
+autoplay = &"Dragon_Fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1789778245]
-position = Vector2(1.5, 0)
-shape = SubResource("RectangleShape2D_porr8")
+position = Vector2(-2.5, -2)
+shape = SubResource("RectangleShape2D_niqsm")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=2040829453]
 wait_time = 2.86

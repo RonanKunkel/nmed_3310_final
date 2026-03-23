@@ -1,6 +1,6 @@
 extends Area2D
 @export var speed = 75
-var direction = Vector2.LEFT
+var direction = Vector2.RIGHT
 @onready var timer = $Timer
 func _physics_process(delta):
 	# Move the projectile in the assigned direction

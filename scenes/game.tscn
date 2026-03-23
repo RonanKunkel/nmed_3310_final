@@ -7,8 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://unrns6mt7l4f" path="res://scenes/spikes_type_shi.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cgwfk6c10faqw" path="res://scenes/MushroomProjectile.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://l7vts5xfddfh" path="res://scenes/sliding_door.tscn" id="7_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://5ebm70v3hynm" path="res://scenes/key.tscn" id="8_gee14"]
-[ext_resource type="PackedScene" uid="uid://cxolwefjrl4h5" path="res://scenes/key_door.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" path="res://scenes/key.tscn" id="8_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
 texture = ExtResource("1_lbhrr")
@@ -3914,8 +3913,8 @@ position = Vector2(96, 25)
 libraries/ = SubResource("AnimationLibrary_kvpfn")
 autoplay = &"spikes"
 
-[node name="mushroom" parent="." unique_id=125072654 instance=ExtResource("6_p57ef")]
-position = Vector2(432, 29)
+[node name="Dragon" parent="." unique_id=125072654 instance=ExtResource("6_p57ef")]
+position = Vector2(357, 26)
 
 [node name="sliding door" parent="." unique_id=79721929 instance=ExtResource("7_u5sy4")]
 position = Vector2(573, -49)
