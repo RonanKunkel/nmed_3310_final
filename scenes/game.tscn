@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://unrns6mt7l4f" path="res://scenes/spikes_type_shi.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://cgwfk6c10faqw" path="res://scenes/MushroomProjectile.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://l7vts5xfddfh" path="res://scenes/sliding_door.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://5ebm70v3hynm" path="res://scenes/key.tscn" id="8_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
 texture = ExtResource("1_lbhrr")
@@ -3767,6 +3768,43 @@ _data = {
 &"animateddoor": SubResource("Animation_dinhu")
 }
 
+[sub_resource type="Animation" id="Animation_trtic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(279, -31)]
+}
+
+[sub_resource type="Animation" id="Animation_kvuet"]
+resource_name = "collect"
+length = 0.76666665
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.27, 0.34, 0.52, 0.65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(279, -31), Vector2(279, -31), Vector2(279, -34.98), Vector2(279, -32.485), Vector2(279, -36.8), Vector2(279, -14.225)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_trtic"]
+_data = {
+&"RESET": SubResource("Animation_trtic"),
+&"collect": SubResource("Animation_kvuet")
+}
+
 [node name="game" type="Node2D" unique_id=491776932]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1016579802]
@@ -3847,5 +3885,11 @@ position = Vector2(573, -49)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="sliding door" unique_id=318366209]
 libraries/ = SubResource("AnimationLibrary_kvuet")
 autoplay = &"animateddoor"
+
+[node name="Area2D2" parent="." unique_id=329355976 instance=ExtResource("8_gee14")]
+position = Vector2(279, -31)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D2" unique_id=1902078040]
+libraries/ = SubResource("AnimationLibrary_trtic")
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
