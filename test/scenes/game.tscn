@@ -3715,6 +3715,7 @@ use_parent_material = true
 centered = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1457952696]
+visible = false
 color = Color(0, 0, 0, 0.9411765)
 
 [node name="TileMap2" type="TileMap" parent="." unique_id=1119060057]

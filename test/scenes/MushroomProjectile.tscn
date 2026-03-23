@@ -12,7 +12,7 @@ size = Vector2(21, 24)
 script = ExtResource("1_niqsm")
 
 [node name="Muzzle" type="Marker2D" parent="CharacterBody2D" unique_id=1395090635]
-position = Vector2(-13.81, -4.265)
+position = Vector2(-14, -7)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1638212218]
 texture = ExtResource("1_porr8")
