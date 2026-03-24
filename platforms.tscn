@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://epkpjx4nmts8"]
+[gd_scene format=3 uid="uid://dn42ua8rli4dh"]
 
-[ext_resource type="Script" uid="uid://cyg0dq7mam1xb" path="res://platforms.gd" id="1_nlgqw"]
-[ext_resource type="Texture2D" uid="uid://cvxrbrcr1kfx1" path="res://assets/tilesets/platform_stone.png" id="2_507ja"]
+[ext_resource type="Script" uid="uid://cyg0dq7mam1xb" path="res://platforms.gd" id="1_6a4s0"]
+[ext_resource type="Texture2D" uid="uid://cvxrbrcr1kfx1" path="res://assets/tilesets/platform_stone.png" id="1_y362q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6a4s0"]
 size = Vector2(48, 8)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=512681709]
-script = ExtResource("1_nlgqw")
+script = ExtResource("1_6a4s0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=282613501]
-texture = ExtResource("2_507ja")
+texture = ExtResource("1_y362q")
 region_enabled = true
 region_rect = Rect2(0, 20, 48, 9)
 
