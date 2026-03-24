@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://cfewlfmggnu7j" path="res://assets/sprites/Door_grate.png" id="1_55pkn"]
 [ext_resource type="Script" uid="uid://cyhhyb4bbihmd" path="res://scripts/keydoor.gd" id="1_a2efa"]
-[ext_resource type="Script" uid="uid://w1mr84w2v3hl" path="res://scripts/door-keyarea.gd" id="1_ivf4t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4ux2"]
 radius = 8.0
@@ -24,9 +23,7 @@ region_rect = Rect2(71, 8, 15, 23)
 position = Vector2(0, 0.5)
 shape = SubResource("CapsuleShape2D_l4ux2")
 
-[node name="doorarea" type="Area2D" parent="." unique_id=1274687082 node_paths=PackedStringArray("key_door")]
-script = ExtResource("1_ivf4t")
-key_door = NodePath("..")
+[node name="doorarea" type="Area2D" parent="." unique_id=1274687082]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="doorarea" unique_id=241828486]
 position = Vector2(-1.5, 0)
