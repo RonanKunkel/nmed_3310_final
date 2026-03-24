@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var anim = $AnimatedSprite2D
 @onready var camera = $Camera2D
 @onready var candle = $PointLight2D
-
+var has_key:bool = false
 const SPEED = 105.0
 const JUMP_VELOCITY = -291.75
 const ACCELERATION = 450.0

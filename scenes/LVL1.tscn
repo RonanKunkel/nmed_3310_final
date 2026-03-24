@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://frdro0rwlsis" path="res://assets/tilesets/level_1_terrain.png" id="2_pvpj5"]
 [ext_resource type="PackedScene" uid="uid://cgjj2bmatef67" path="res://scenes/player.tscn" id="3_mbhjr"]
 [ext_resource type="Script" uid="uid://h12u6v6tc81r" path="res://scripts/point_light_2d.gd" id="4_hs3uw"]
+[ext_resource type="PackedScene" uid="uid://bwnjcuoirdwau" path="res://scenes/lever.tscn" id="5_vkqww"]
+[ext_resource type="PackedScene" uid="uid://c1jxbmb1rrj28" path="res://scenes/KeyDoor.tscn" id="6_pmkeb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
 resource_name = "Stone"
@@ -867,6 +869,80 @@ fill_to = Vector2(0.8333333, 0.6596244)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
 distance = -50.0
 
+[sub_resource type="Animation" id="Animation_vkqww"]
+resource_name = "KeyDoor"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5109, -1085), Vector2(5109, -1113.215)]
+}
+
+[sub_resource type="Animation" id="Animation_pmkeb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5109, -1085)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6e5yk"]
+_data = {
+&"KeyDoor": SubResource("Animation_vkqww"),
+&"RESET": SubResource("Animation_pmkeb")
+}
+
+[sub_resource type="Animation" id="Animation_6e5yk"]
+resource_name = "KeyDoor"
+length = 0.56666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("key_door2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5054, -1085), Vector2(5054, -1111.73)]
+}
+
+[sub_resource type="Animation" id="Animation_upo6d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("key_door2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5054, -1085)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aspnn"]
+_data = {
+&"KeyDoor": SubResource("Animation_6e5yk"),
+&"RESET": SubResource("Animation_upo6d")
+}
+
 [node name="game" type="Node2D" unique_id=491776932]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1016579802]
@@ -911,5 +987,26 @@ centered = false
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1457952696]
 visible = false
 color = Color(0, 0, 0, 0.9411765)
+
+[node name="Lever" parent="." unique_id=321454910 instance=ExtResource("5_vkqww")]
+position = Vector2(4954, -1043)
+
+[node name="key_door" parent="." unique_id=1959101416 node_paths=PackedStringArray("linked_lever") instance=ExtResource("6_pmkeb")]
+position = Vector2(5109, -1085)
+linked_lever = NodePath("../Lever")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="key_door" unique_id=1928822360]
+libraries/ = SubResource("AnimationLibrary_6e5yk")
+
+[node name="Lever2" parent="." unique_id=275883049 instance=ExtResource("5_vkqww")]
+position = Vector2(4860, -1076)
+
+[node name="key_door2" parent="." unique_id=1630392533 node_paths=PackedStringArray("linked_lever") instance=ExtResource("6_pmkeb")]
+position = Vector2(5054, -1085)
+linked_lever = NodePath("../Lever2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="key_door2" unique_id=66922322]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_aspnn")
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
