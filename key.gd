@@ -7,7 +7,6 @@ func _ready():
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		body.has_key = true
 		$AnimationPlayer.play("collect")
 	
 func _on_collect_done(anim_name):
