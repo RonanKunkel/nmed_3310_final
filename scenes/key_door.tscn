@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cxolwefjrl4h5"]
+
+[ext_resource type="Texture2D" uid="uid://cfewlfmggnu7j" path="res://assets/sprites/Door_grate.png" id="1_3sjne"]
+[ext_resource type="Script" uid="uid://dvyktkm31slei" path="res://scripts/key_doorbody.gd" id="1_dlisi"]
+[ext_resource type="Script" uid="uid://w1mr84w2v3hl" path="res://scripts/key_door.gd" id="1_gtk2o"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4ux2"]
+radius = 8.0
+height = 33.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtk2o"]
+size = Vector2(25, 20)
+
+[node name="sliding door" type="AnimatableBody2D" unique_id=1959101416]
+script = ExtResource("1_dlisi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=82899006]
+position = Vector2(0.25, 0.25)
+scale = Vector2(1.0333333, 1.0217391)
+texture = ExtResource("1_3sjne")
+region_rect = Rect2(71, 8, 15, 23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=362592205]
+position = Vector2(0, 0.5)
+shape = SubResource("CapsuleShape2D_l4ux2")
+
+[node name="key-Door" type="Area2D" parent="." unique_id=1784200090]
+script = ExtResource("1_gtk2o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="key-Door" unique_id=544677033]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_gtk2o")
+
+[connection signal="body_entered" from="key-Door" to="key-Door" method="_on_body_entered"]
