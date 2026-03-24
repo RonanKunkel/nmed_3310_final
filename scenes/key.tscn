@@ -1,7 +1,9 @@
-[gd_scene format=3 uid="uid://5ebm70v3hynm"]
+[gd_scene format=3 uid="uid://dc87o6vuryqnf"]
 
 [ext_resource type="Script" uid="uid://dw0pm4qt58i44" path="res://key.gd" id="1_fttkb"]
-[ext_resource type="Texture2D" uid="uid://hr8kwjnwwc5" path="res://assets/sprites/testKey.png" id="2_wy8tx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yk2u2"]
+load_path = "res://.godot/imported/testKey.png-4dab09b74a957ec79171dbf67ba29b1a.ctex"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_brs3p"]
 radius = 15.0
@@ -11,9 +13,9 @@ height = 50.0
 script = ExtResource("1_fttkb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=29575087]
-texture = ExtResource("2_wy8tx")
+texture = SubResource("CompressedTexture2D_yk2u2")
 region_enabled = true
-region_rect = Rect2(15, 17, 18, 9)
+region_rect = Rect2(1, 4, 14, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=741458494]
 rotation = -1.5707964

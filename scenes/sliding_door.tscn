@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cfewlfmggnu7j" path="res://assets/sprites/Door_grate.png" id="1_l4ux2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4ux2"]
-radius = 8.0
+radius = 7.0
 height = 33.0
 
 [node name="sliding door" type="AnimatableBody2D" unique_id=1959101416]
@@ -12,8 +12,8 @@ height = 33.0
 position = Vector2(0.25, 0.25)
 scale = Vector2(1.0333333, 1.0217391)
 texture = ExtResource("1_l4ux2")
-region_rect = Rect2(71, 8, 15, 23)
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=362592205]
-position = Vector2(0, 0.5)
 shape = SubResource("CapsuleShape2D_l4ux2")
