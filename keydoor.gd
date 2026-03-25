@@ -18,7 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_lever_toggled(state: bool) -> void:
 	if state:
 		open()
-	if !state:
+	else:
 		close()
 
 func open():
@@ -28,6 +28,5 @@ func open():
 		
 func close():
 	if is_open:
-		is_open = false
+		is_open = !is_open
 		$AnimationPlayer.play_backwards("KeyDoor")
-		
