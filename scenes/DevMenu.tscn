@@ -3,6 +3,7 @@
 [node name="CanvasLayer" type="CanvasLayer" unique_id=2081920975]
 
 [node name="DevLabel" type="Label" parent="." unique_id=136285030]
+visible = false
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 98.0

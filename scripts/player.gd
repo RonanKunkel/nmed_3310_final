@@ -45,6 +45,9 @@ func _ready() -> void:
 		dev_label.visible = false
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("close_game"):
+		get_tree().quit()
+		
 	if event.is_action_pressed("dev_mode"):
 		set_dev_mode_enabled(!dev_mode_enabled)
 
