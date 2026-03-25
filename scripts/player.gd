@@ -3,7 +3,12 @@ extends CharacterBody2D
 @onready var anim = $AnimatedSprite2D
 @onready var camera = $Camera2D
 @onready var candle = $PointLight2D
+@onready var death_timer = $DeathTimer
+
 var has_key:bool = false
+var death_animation_started = false
+var is_dead = false
+
 const SPEED = 105.0
 const JUMP_VELOCITY = -291.75
 const ACCELERATION = 450.0
@@ -22,7 +27,6 @@ var camera_start_offset: Vector2
 var light_y := 0.0
 var target_light_y := 0.0
 var target_camera_y := 0.0
-var is_dead = false
 
 
 func _ready() -> void:
@@ -31,6 +35,18 @@ func _ready() -> void:
 	camera_start_offset = camera.offset
 
 func _physics_process(delta: float) -> void:
+	if velocity.x < 0:
+		anim.flip_h = true
+	elif velocity.x > 0:
+		anim.flip_h = false
+		
+	if is_dead:
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+	
+		move_and_slide()
+		return
+
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -89,15 +105,21 @@ func _physics_process(delta: float) -> void:
 	elif velocity.x > 0:
 		anim.flip_h = false
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body == self:
-		global_position = Vector2(0, -128)
-		velocity = Vector2.ZERO
+#func _on_area_2d_body_entered(body: Node2D) -> void:
+#	if body == self:
+#		global_position = Vector2(0, -128)
+#		velocity = Vector2.ZERO
 		
 		
-func die() :
-	if is_dead : return
+func die() -> void:
+	if is_dead:
+		return
+
 	is_dead = true
-	velocity = Vector2.ZERO
+	velocity.x = 0
+	anim.play("Death")
+	death_timer.start()
+
 	
-	
+func _on_death_timer_timeout() -> void:
+	get_tree().reload_current_scene()

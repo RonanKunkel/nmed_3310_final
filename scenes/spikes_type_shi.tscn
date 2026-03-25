@@ -23,3 +23,6 @@ scale = Vector2(1.0366902, 1.7938923)
 position = Vector2(0, 7.5255394)
 scale = Vector2(1.0000004, 1.0000002)
 shape = SubResource("RectangleShape2D_a1y00")
+
+[node name="Timer2" type="Timer" parent="spikes type shi/Area2D" unique_id=875648552]
+wait_time = 2.5
