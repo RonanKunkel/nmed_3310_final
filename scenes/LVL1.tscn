@@ -1073,6 +1073,8 @@ _data = {
 
 [node name="game" type="Node2D" unique_id=491776932]
 
+[node name="DevMenu" parent="." unique_id=2081920975 instance=ExtResource("11_dd483")]
+
 [node name="Background" type="TileMap" parent="." unique_id=1177567358]
 tile_set = SubResource("TileSet_6e5yk")
 format = 2
@@ -1479,7 +1481,5 @@ position = Vector2(6113, -695)
 
 [node name="Node2D" parent="." unique_id=1120193631 instance=ExtResource("10_aspnn")]
 position = Vector2(5729, -1080)
-
-[node name="DevMenu" parent="." unique_id=2081920975 instance=ExtResource("11_dd483")]
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
