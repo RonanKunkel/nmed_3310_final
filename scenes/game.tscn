@@ -6,9 +6,10 @@
 [ext_resource type="Script" uid="uid://h12u6v6tc81r" path="res://scripts/point_light_2d.gd" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://epkpjx4nmts8" path="res://scenes/platform.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://unrns6mt7l4f" path="res://scenes/spikes_type_shi.tscn" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://cgwfk6c10faqw" path="res://scenes/MushroomProjectile.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://cgwfk6c10faqw" path="res://scenes/DragonProjectile.tscn" id="6_p57ef"]
 [ext_resource type="PackedScene" uid="uid://l7vts5xfddfh" path="res://scenes/sliding_door.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dc87o6vuryqnf" path="res://scenes/key.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://db0ekurxqk7a3" path="res://scenes/MushroomProjectile.tscn" id="10_vtaks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
 resource_name = "Stone"
@@ -4203,9 +4204,6 @@ position = Vector2(96, 25)
 libraries/ = SubResource("AnimationLibrary_kvpfn")
 autoplay = &"spikes"
 
-[node name="Dragon" parent="." unique_id=125072654 instance=ExtResource("6_p57ef")]
-position = Vector2(357, 26)
-
 [node name="sliding door" parent="." unique_id=79721929 instance=ExtResource("7_u5sy4")]
 position = Vector2(573, -49)
 
@@ -4218,5 +4216,11 @@ position = Vector2(279, -31)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D2" unique_id=1902078040]
 libraries/ = SubResource("AnimationLibrary_trtic")
+
+[node name="Dragon" parent="." unique_id=125072654 instance=ExtResource("6_p57ef")]
+position = Vector2(356, 26)
+
+[node name="Node2D" parent="." unique_id=424854756 instance=ExtResource("10_vtaks")]
+position = Vector2(243, -12)
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]

@@ -8,23 +8,21 @@ radius = 8.0
 height = 33.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2efa"]
-size = Vector2(45, 20)
+size = Vector2(35, 20)
 
 [node name="key_door" type="AnimatableBody2D" unique_id=1959101416]
 script = ExtResource("1_a2efa")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=82899006]
-position = Vector2(0.25, 0.25)
-scale = Vector2(1.0333333, 1.0217391)
+position = Vector2(8.881784e-16, 8.881784e-16)
 texture = ExtResource("1_55pkn")
-region_rect = Rect2(71, 8, 15, 23)
+region_enabled = true
+region_rect = Rect2(64, 0, 16, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=362592205]
-position = Vector2(0, 0.5)
 shape = SubResource("CapsuleShape2D_l4ux2")
 
 [node name="doorarea" type="Area2D" parent="." unique_id=1274687082]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="doorarea" unique_id=241828486]
-position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_a2efa")

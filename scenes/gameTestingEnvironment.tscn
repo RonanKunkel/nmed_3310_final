@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://frdro0rwlsis" path="res://assets/tilesets/level_1_terrain.png" id="2_j4geu"]
 [ext_resource type="PackedScene" uid="uid://cgjj2bmatef67" path="res://scenes/player.tscn" id="3_ra5yx"]
 [ext_resource type="Script" uid="uid://h12u6v6tc81r" path="res://scripts/point_light_2d.gd" id="4_ctfyo"]
-[ext_resource type="PackedScene" uid="uid://cgwfk6c10faqw" path="res://scenes/MushroomProjectile.tscn" id="5_yqvjv"]
+[ext_resource type="PackedScene" uid="uid://cgwfk6c10faqw" path="res://scenes/DragonProjectile.tscn" id="5_yqvjv"]
 [ext_resource type="PackedScene" uid="uid://l7vts5xfddfh" path="res://scenes/sliding_door.tscn" id="6_tnya8"]
-[ext_resource type="PackedScene" uid="uid://5ebm70v3hynm" path="res://scenes/key.tscn" id="7_lry42"]
+[ext_resource type="PackedScene" uid="uid://dc87o6vuryqnf" path="res://scenes/key.tscn" id="7_lry42"]
 [ext_resource type="PackedScene" uid="uid://c1jxbmb1rrj28" path="res://scenes/KeyDoor.tscn" id="8_qhjk0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]

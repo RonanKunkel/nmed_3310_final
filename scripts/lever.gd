@@ -5,6 +5,8 @@ var leverActivated = false;
 
 signal lever_toggled(state)
 
+@onready var anim = $AnimationPlayer
+
 func _ready() -> void:
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
@@ -15,6 +17,10 @@ func _process(delta: float) -> void:
 		
 func toggle_lever() -> void:
 	leverActivated = !leverActivated
+	
+	if leverActivated:
+		anim.play("Toggle")
+	
 	emit_signal("lever_toggled", leverActivated)
 	
 func _on_body_entered(body: Node2D) -> void:

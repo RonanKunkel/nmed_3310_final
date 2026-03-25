@@ -6,8 +6,8 @@
 load_path = "res://.godot/imported/testKey.png-4dab09b74a957ec79171dbf67ba29b1a.ctex"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_brs3p"]
-radius = 15.0
-height = 50.0
+radius = 8.0
+height = 28.0
 
 [node name="Area2D" type="Area2D" unique_id=329355976]
 script = ExtResource("1_fttkb")

@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://dc234oxqr4r7l"]
+[gd_scene format=3 uid="uid://bs2nygehxinlk"]
 
-[ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="1_0kxr3"]
-[ext_resource type="Script" uid="uid://br81qjq7qind8" path="res://scripts/projectile.gd" id="1_gjmc2"]
+[ext_resource type="Script" uid="uid://cne3op6bupwf4" path="res://scenes/projectile_mushroom.gd" id="1_ilmtp"]
+[ext_resource type="Texture2D" uid="uid://c3g6ydf02gm0c" path="res://assets/sprites/mushroom_shot.png" id="2_vk2hl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjmc2"]
-size = Vector2(7, 11)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilmtp"]
+radius = 5.0990195
 
 [sub_resource type="Gradient" id="Gradient_gjmc2"]
 offsets = PackedFloat32Array(0, 0.57875, 1)
@@ -16,25 +16,19 @@ fill = 1
 fill_from = Vector2(0.52136755, 0.4974359)
 fill_to = Vector2(0.5, 0)
 
-[node name="projectile" type="Area2D" unique_id=261772701]
-script = ExtResource("1_gjmc2")
+[node name="projectile_mushroom" type="Area2D" unique_id=261772701]
+script = ExtResource("1_ilmtp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=528928217]
-position = Vector2(4.25, 4.607895)
-scale = Vector2(1.0298246, 1.0298246)
-texture = ExtResource("1_0kxr3")
+texture = ExtResource("2_vk2hl")
 region_enabled = true
-region_rect = Rect2(7, 44, 18, 8)
+region_rect = Rect2(2, 34, 12, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=490056870]
-position = Vector2(7.5, 4.5)
-rotation = -1.5707964
-shape = SubResource("RectangleShape2D_gjmc2")
+shape = SubResource("CircleShape2D_ilmtp")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=63421159]
-position = Vector2(9, 4)
-scale = Vector2(1.9873904, 0.9594298)
-color = Color(1, 0.63529414, 0.24313726, 1)
+color = Color(0.45882353, 0.654902, 0.2627451, 1)
 texture = SubResource("GradientTexture2D_qni05")
 offset = Vector2(0, 0.13)
 texture_scale = 0.9

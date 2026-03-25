@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dc234oxqr4r7l"]
+
+[ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="1_0kxr3"]
+[ext_resource type="Script" uid="uid://83qir02m0txe" path="res://scenes/projectile_dragon.gd" id="1_wsprr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjmc2"]
+size = Vector2(7, 10.5)
+
+[sub_resource type="Gradient" id="Gradient_gjmc2"]
+offsets = PackedFloat32Array(0, 0.57875, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.84757704, 0.56756204, 0.24793604, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qni05"]
+gradient = SubResource("Gradient_gjmc2")
+fill = 1
+fill_from = Vector2(0.52136755, 0.4974359)
+fill_to = Vector2(0.5, 0)
+
+[node name="projectile_dragon" type="Area2D" unique_id=261772701]
+script = ExtResource("1_wsprr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=528928217]
+texture = ExtResource("1_0kxr3")
+region_enabled = true
+region_rect = Rect2(7, 44, 18, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=490056870]
+position = Vector2(3.25, -1.0927847e-08)
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_gjmc2")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=63421159]
+color = Color(1, 0.63529414, 0.24313726, 1)
+texture = SubResource("GradientTexture2D_qni05")
+offset = Vector2(0, 0.13)
+texture_scale = 0.9
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

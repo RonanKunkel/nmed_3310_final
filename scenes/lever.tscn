@@ -1,17 +1,63 @@
 [gd_scene format=3 uid="uid://bwnjcuoirdwau"]
 
-[ext_resource type="Script" path="res://scripts/lever.gd" id="1_0ohsc"]
-[ext_resource type="Texture2D" uid="uid://cfyvqpd4bdkge" path="res://assets/sprites/lever.png" id="2_ncfea"]
+[ext_resource type="Script" uid="uid://fh68tuc68x17" path="res://scripts/lever.gd" id="1_0ohsc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4kwec"]
+load_path = "res://.godot/imported/lever.png-89c1d49f95bf865022505ee302d49ba8.ctex"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u5sy4"]
-radius = 21.0
+radius = 18.0
+
+[sub_resource type="Animation" id="Animation_ncfea"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_4kwec"]
+resource_name = "Toggle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ncfea"]
+_data = {
+&"RESET": SubResource("Animation_ncfea"),
+&"Toggle": SubResource("Animation_4kwec")
+}
 
 [node name="Lever" type="Area2D" unique_id=321454910]
 position = Vector2(21, 3)
 script = ExtResource("1_0ohsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=798476848]
-texture = ExtResource("2_ncfea")
+texture = SubResource("CompressedTexture2D_4kwec")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1393289811]
+position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_u5sy4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=535089492]
+libraries/ = SubResource("AnimationLibrary_ncfea")

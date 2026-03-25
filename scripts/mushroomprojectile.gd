@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var ShootTimer = $Timer
 # Preload the bullet scene
-var projectile_scene = preload("res://scenes/projctile.tscn")
+var projectile_scene = preload("res://scenes/projectile_mushroom.tscn")
 func _ready():
 	ShootTimer.start()
 

@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://db0ekurxqk7a3"]
+[gd_scene format=3 uid="uid://cgwfk6c10faqw"]
 
-[ext_resource type="Texture2D" uid="uid://c3g6ydf02gm0c" path="res://assets/sprites/mushroom_shot.png" id="2_oepnt"]
+[ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="1_porr8"]
 
 [sub_resource type="GDScript" id="GDScript_j104q"]
 script/source = "extends CharacterBody2D
 
 @onready var ShootTimer = $Timer
 # Preload the bullet scene
-var projectile_scene = preload(\"res://scenes/projectile_mushroom.tscn\")
+var projectile_scene = preload(\"res://scenes/projectile_dragon.tscn\")
 func _ready():
 	ShootTimer.start()
 
@@ -16,28 +16,23 @@ func _on_timer_timeout() -> void:
 	
 func shoot(target_position: Vector2):
 	# 1. Instantiate the bullet
-	var projectile_mushroom = projectile_scene.instantiate()
+	var projectile_dragon = projectile_scene.instantiate()
 	
 	# 2. Position it at the Muzzle
-	projectile_mushroom.global_position = $Muzzle.global_position
+	projectile_dragon.global_position = $Muzzle.global_position
 	
 	# 3. Calculate direction towards target (e.g., the player)
 	#var dir = (target_position - $Muzzle.global_position).normalized()
 	#projectile.direction = dir
 	
 	# 4. Add the bullet to the main scene, NOT as a child of the mob
-	get_tree().root.add_child(projectile_mushroom)
+	get_tree().root.add_child(projectile_dragon)
 	
 "
 
 [sub_resource type="Animation" id="Animation_niqsm"]
 resource_name = "Dragon_Fire"
-length = 2.86
-loop_mode = 1
-
-[sub_resource type="Animation" id="Animation_jdqvy"]
-resource_name = "Mushroom_Shoot"
-length = 5.0
+length = 3.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -46,10 +41,10 @@ tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 3, 4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.4, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1]
 }
 
 [sub_resource type="Animation" id="Animation_dwnmp"]
@@ -70,13 +65,11 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fdg4b"]
 _data = {
 &"Dragon_Fire": SubResource("Animation_niqsm"),
-&"Mushroom_Shoot": SubResource("Animation_jdqvy"),
 &"RESET": SubResource("Animation_dwnmp")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_porr8"]
-radius = 6.0
-height = 26.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_niqsm"]
+size = Vector2(11, 16.75)
 
 [node name="Node2D" type="Node2D" unique_id=125072654]
 
@@ -84,27 +77,27 @@ height = 26.0
 script = SubResource("GDScript_j104q")
 
 [node name="Muzzle" type="Marker2D" parent="CharacterBody2D" unique_id=1395090635]
-position = Vector2(-16, 0)
+position = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1638212218]
-rotation = -1.5707964
-texture = ExtResource("2_oepnt")
-hframes = 4
+position = Vector2(0.73706853, 0)
+scale = Vector2(0.97977453, 1)
+texture = ExtResource("1_porr8")
+hframes = 2
 region_enabled = true
-region_rect = Rect2(0, 0, 92, 25)
+region_rect = Rect2(3, 5, 52, 21)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1715545931]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_fdg4b")
-autoplay = &"Mushroom_Shoot"
+autoplay = &"Dragon_Fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1789778245]
-position = Vector2(2, -5)
-rotation = -1.5707964
-shape = SubResource("CapsuleShape2D_porr8")
+position = Vector2(-2.5, -2)
+shape = SubResource("RectangleShape2D_niqsm")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=2040829453]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
