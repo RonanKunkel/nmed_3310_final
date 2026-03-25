@@ -11,7 +11,7 @@ func _ready() -> void:
 	connect("body_entered", _on_body_entered)
 	connect("body_exited", _on_body_exited)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if playerInRange and Input.is_action_just_pressed("interact"):
 		toggle_lever()
 		

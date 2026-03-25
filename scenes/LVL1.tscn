@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://unrns6mt7l4f" path="res://scenes/spikes_type_shi.tscn" id="8_6e5yk"]
 [ext_resource type="PackedScene" uid="uid://cgwfk6c10faqw" path="res://scenes/DragonProjectile.tscn" id="9_upo6d"]
 [ext_resource type="PackedScene" uid="uid://db0ekurxqk7a3" path="res://scenes/MushroomProjectile.tscn" id="10_aspnn"]
+[ext_resource type="PackedScene" uid="uid://ctg0blvoa5gkf" path="res://scenes/DevMenu.tscn" id="11_dd483"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pmkeb"]
 texture = ExtResource("2_pvpj5")
@@ -1478,5 +1479,7 @@ position = Vector2(6113, -695)
 
 [node name="Node2D" parent="." unique_id=1120193631 instance=ExtResource("10_aspnn")]
 position = Vector2(5729, -1080)
+
+[node name="DevMenu" parent="." unique_id=2081920975 instance=ExtResource("11_dd483")]
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
