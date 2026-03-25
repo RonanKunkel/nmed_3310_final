@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://h12u6v6tc81r" path="res://scripts/point_light_2d.gd" id="4_hs3uw"]
 [ext_resource type="PackedScene" uid="uid://bwnjcuoirdwau" path="res://scenes/lever.tscn" id="5_vkqww"]
 [ext_resource type="PackedScene" uid="uid://c1jxbmb1rrj28" path="res://scenes/KeyDoor.tscn" id="6_pmkeb"]
-[ext_resource type="PackedScene" uid="uid://cgwfk6c10faqw" path="res://scenes/DragonProjectile.tscn" id="7_pmkeb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gee14"]
 resource_name = "Stone"
@@ -1076,8 +1075,5 @@ linked_lever = NodePath("../Lever2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="key_door2" unique_id=600275771]
 libraries/ = SubResource("AnimationLibrary_dd483")
-
-[node name="Node2D" parent="." unique_id=125072654 instance=ExtResource("7_pmkeb")]
-position = Vector2(4508, -1063)
 
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
