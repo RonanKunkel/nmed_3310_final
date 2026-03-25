@@ -46,7 +46,6 @@ _data = {
 }
 
 [node name="Lever" type="Area2D" unique_id=321454910]
-position = Vector2(21, 3)
 script = ExtResource("1_0ohsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=798476848]

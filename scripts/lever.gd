@@ -20,6 +20,8 @@ func toggle_lever() -> void:
 	
 	if leverActivated:
 		anim.play("Toggle")
+	else:
+		anim.play_backwards("Toggle")
 	
 	emit_signal("lever_toggled", leverActivated)
 	
