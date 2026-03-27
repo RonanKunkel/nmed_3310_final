@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var death_timer = $DeathTimer
 @onready var collision = $CollisionShape2D
 @onready var dev_label = $"../DevMenu/DevLabel"
-
+@onready var tilemap: TileMap = $"../TileMap2"  # adjust path to your TileMap
 var has_key: bool = false
 var is_dead = false
 
@@ -16,10 +16,10 @@ var invulnerable := false
 var flight_mode := false
 var noclip := false
 
-const SPEED = 105.0
+var SPEED = 105.0
 const JUMP_VELOCITY = -291.75
-const ACCELERATION = 450.0
-const FRICTION = 600.0
+var ACCELERATION = 450.0
+var FRICTION = 600.0
 const MIN_JUMP_CUT = -75.0
 
 const LIGHT_SHIFT = 10.0
@@ -146,7 +146,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, FRICTION * delta)
-
+	
+	check_tile_under_player()
 	move_and_slide()
 
 	# Check if player is standing still on the floor
@@ -185,7 +186,25 @@ func _physics_process(delta: float) -> void:
 	elif velocity.x > 0.0:
 		anim.flip_h = false
 
-
+func check_tile_under_player():
+	var feet_pos = global_position + Vector2(0, 16)
+	var tile_pos = tilemap.local_to_map(tilemap.to_local(feet_pos))
+	var tile_data = tilemap.get_cell_tile_data(0, tile_pos)
+	if tile_data:
+		var tile_type = tile_data.get_custom_data("tile_type")
+		if tile_type == 1:
+			SPEED = 175
+			FRICTION = 350
+			ACCELERATION = 250  # slow down on this tile, for example
+		else:
+			SPEED = 105
+	else:
+		SPEED = 105
+		FRICTION = 600
+		ACCELERATION = 450
+		
+		
+		
 func handle_flight(_delta: float) -> void:
 	var move_input := Vector2(
 		Input.get_axis("move_left", "move_right"),
@@ -260,3 +279,7 @@ func die() -> void:
 
 func _on_death_timer_timeout() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
