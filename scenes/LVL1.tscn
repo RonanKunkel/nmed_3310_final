@@ -1110,7 +1110,6 @@ use_parent_material = true
 centered = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1457952696]
-visible = false
 color = Color(0, 0, 0, 0.9411765)
 
 [node name="Lever2" parent="." unique_id=275883049 instance=ExtResource("5_vkqww")]
