@@ -20,16 +20,17 @@ var SPEED = 105.0
 const JUMP_VELOCITY = -291.75
 const ACCELERATION = 450.0
 const FRICTION = 600.0
-const ICE_ACCELERATION = 60.0
-const ICE_FRICTION = 40.0
-const ICE_SPEED = 200
-const ICE_AIR_FRICTION = 5.0
+const ICE_ACCELERATION = 70.0
+const ICE_FRICTION = 50.0
+const ICE_SPEED = 180
+const ICE_AIR_FRICTION = 2.0
 const MIN_JUMP_CUT = -75.0
 
 var current_acceleration = ACCELERATION
 var current_friction = FRICTION
 var on_ice = false
 var jumped_from_ice = false
+var was_on_floor = false
 const LIGHT_SHIFT = 10.0
 const LIGHT_SPEED = 8.0
 const CAMERA_SHIFT = 20.0
@@ -154,7 +155,8 @@ func _physics_process(delta: float) -> void:
 	# Horizontal movement
 	var direction := Input.get_axis("move_left", "move_right")
 	if is_on_floor():
-		jumped_from_ice = false
+		if not was_on_floor:
+			jumped_from_ice = false
 		var target_speed = ICE_SPEED if on_ice else SPEED
 		if direction:
 			velocity.x = move_toward(velocity.x, direction * target_speed, current_acceleration * delta)
@@ -168,6 +170,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, direction * air_target_speed, current_acceleration * delta)
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, air_friction * delta)
+	was_on_floor = is_on_floor()
 	move_and_slide()
 
 	# Check if player is standing still on the floor
