@@ -1111,10 +1111,11 @@ use_parent_material = true
 centered = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1457952696]
+visible = false
 color = Color(0.2, 0.2, 0, 0.99215686)
 
 [node name="Lever2" parent="." unique_id=275883049 instance=ExtResource("5_vkqww")]
-position = Vector2(4954, -1043)
+position = Vector2(4954, -1042)
 
 [node name="key_door2" parent="." unique_id=1630392533 node_paths=PackedStringArray("linked_lever") instance=ExtResource("6_pmkeb")]
 position = Vector2(5059, -1084)
@@ -1125,24 +1126,24 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_aspnn")
 
 [node name="Lever3" parent="." unique_id=1478030234 instance=ExtResource("5_vkqww")]
-position = Vector2(5610, -1075)
+position = Vector2(5610, -1074)
 
 [node name="CharacterBody2D" parent="." unique_id=512681709 node_paths=PackedStringArray("linked_lever") instance=ExtResource("7_pmkeb")]
 position = Vector2(4484, -762)
 linked_lever = NodePath("../Lever3")
 
 [node name="Lever4" parent="." unique_id=321454910 instance=ExtResource("5_vkqww")]
-position = Vector2(6133, -931)
+position = Vector2(6133, -930)
 
 [node name="Lever5" parent="." unique_id=646604262 instance=ExtResource("5_vkqww")]
-position = Vector2(4164, -851)
+position = Vector2(4164, -849)
 
 [node name="CharacterBody2D2" parent="." unique_id=1227359082 node_paths=PackedStringArray("linked_lever") instance=ExtResource("7_pmkeb")]
 position = Vector2(5884, -679)
 linked_lever = NodePath("../Lever5")
 
 [node name="Lever6" parent="." unique_id=740429617 instance=ExtResource("5_vkqww")]
-position = Vector2(6554, -1139)
+position = Vector2(6554, -1138)
 
 [node name="key_door3" parent="." unique_id=1959101416 node_paths=PackedStringArray("linked_lever") instance=ExtResource("6_pmkeb")]
 position = Vector2(6643, -556)
@@ -1395,11 +1396,8 @@ position = Vector2(1792, 0)
 [node name="spikes type shi80" parent="Spikes2" unique_id=1341131632 instance=ExtResource("8_6e5yk")]
 position = Vector2(1824, 0)
 
-[node name="spikes type shi81" parent="Spikes2" unique_id=523388655 instance=ExtResource("8_6e5yk")]
-position = Vector2(1856, 0)
-
 [node name="Spikes3" type="Node2D" parent="." unique_id=1234979032]
-position = Vector2(5660, -827)
+position = Vector2(5660, -826)
 
 [node name="spikes type shi89" parent="Spikes3" unique_id=643743825 instance=ExtResource("8_6e5yk")]
 
