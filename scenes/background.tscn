@@ -17,7 +17,7 @@ texture = ExtResource("1_cbsqf")
 stretch_mode = 1
 
 [node name="3rd" type="Parallax2D" parent="." unique_id=1709634817]
-scroll_scale = Vector2(0.3, 0.3)
+scroll_scale = Vector2(0.3, 1)
 repeat_size = Vector2(640, 315)
 
 [node name="TextureRect" type="TextureRect" parent="3rd" unique_id=1874772826]
@@ -26,7 +26,7 @@ offset_bottom = 360.0
 texture = ExtResource("2_wisxt")
 
 [node name="2nd" type="Parallax2D" parent="." unique_id=760604966]
-scroll_scale = Vector2(0.5, 0.5)
+scroll_scale = Vector2(0.5, 1)
 repeat_size = Vector2(640, 315)
 
 [node name="TextureRect" type="TextureRect" parent="2nd" unique_id=1562109224]
@@ -35,7 +35,7 @@ offset_bottom = 360.0
 texture = ExtResource("3_wax1t")
 
 [node name="Front" type="Parallax2D" parent="." unique_id=1056739342]
-scroll_scale = Vector2(0.7, 0.7)
+scroll_scale = Vector2(0.7, 1)
 repeat_size = Vector2(640, 315)
 
 [node name="TextureRect" type="TextureRect" parent="Front" unique_id=783610624]
