@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://581i2p4wc47l"]
+
+[ext_resource type="Texture2D" uid="uid://ene5242y7mu6" path="res://assets/parallax/Level2/L2.05.png" id="1_vxmc0"]
+[ext_resource type="Texture2D" uid="uid://b0oq1nino53tq" path="res://assets/parallax/Level2/L2.04.png" id="2_blh8a"]
+[ext_resource type="Texture2D" uid="uid://cebrfuihr28a6" path="res://assets/parallax/Level2/L2.03.png" id="3_0anc2"]
+[ext_resource type="Texture2D" uid="uid://bv4wsgxralxxv" path="res://assets/parallax/Level2/L2.02.png" id="4_64sj4"]
+[ext_resource type="Texture2D" uid="uid://cuy0sw5nes0ft" path="res://assets/parallax/Level2/L2.01.png" id="5_7mub4"]
+
+[node name="Lvl2Background" type="Node2D" unique_id=1130605012]
+
+[node name="Back" type="Parallax2D" parent="." unique_id=1313295719]
+repeat_size = Vector2(640, 315)
+
+[node name="TextureRect" type="TextureRect" parent="Back" unique_id=1345509409]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("1_vxmc0")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="4th" type="Parallax2D" parent="." unique_id=1568566174]
+scroll_scale = Vector2(0.4, 1)
+repeat_size = Vector2(640, 315)
+
+[node name="TextureRect" type="TextureRect" parent="4th" unique_id=1403407206]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_blh8a")
+metadata/_edit_use_anchors_ = true
+
+[node name="3rd" type="Parallax2D" parent="." unique_id=1994372078]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(640, 315)
+
+[node name="TextureRect" type="TextureRect" parent="3rd" unique_id=412719660]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("3_0anc2")
+metadata/_edit_use_anchors_ = true
+
+[node name="2nd" type="Parallax2D" parent="." unique_id=1877787331]
+scroll_scale = Vector2(0.6, 1)
+repeat_size = Vector2(640, 315)
+
+[node name="TextureRect" type="TextureRect" parent="2nd" unique_id=448893104]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("4_64sj4")
+metadata/_edit_use_anchors_ = true
+
+[node name="Front" type="Parallax2D" parent="." unique_id=174259249]
+scroll_scale = Vector2(0.8, 1)
+repeat_size = Vector2(640, 315)
+
+[node name="TextureRect" type="TextureRect" parent="Front" unique_id=2139734022]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("5_7mub4")
+metadata/_edit_use_anchors_ = true

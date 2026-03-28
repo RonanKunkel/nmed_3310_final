@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c5dww6juui28l" path="res://assets/tilesets/level_2_terrain.png" id="3_nmfrc"]
 [ext_resource type="PackedScene" uid="uid://cgjj2bmatef67" path="res://scenes/player.tscn" id="4_n72lv"]
 [ext_resource type="Script" uid="uid://h12u6v6tc81r" path="res://scripts/point_light_2d.gd" id="5_2ic4g"]
-[ext_resource type="PackedScene" uid="uid://d3vlnxu7pkymd" path="res://scenes/background.tscn" id="5_h3ao8"]
+[ext_resource type="PackedScene" uid="uid://4ccr8wh0xc15" path="res://scenes/LVL3background.tscn" id="7_h3ao8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m1lkt"]
 resource_name = "Stone"
@@ -1340,8 +1340,6 @@ script = ExtResource("3_h3ao8")
 position = Vector2(-4, 412)
 shape = SubResource("WorldBoundaryShape2D_mg3cd")
 
-[node name="Background" parent="Area2D" unique_id=838031488 instance=ExtResource("5_h3ao8")]
-
 [node name="player" parent="." unique_id=632898850 instance=ExtResource("4_n72lv")]
 position = Vector2(-128, 186)
 
@@ -1361,6 +1359,8 @@ texture = SubResource("GradientTexture2D_bhhal")
 texture_scale = 0.39
 script = ExtResource("5_2ic4g")
 colorLow = Color(1, 0.6745098, 0.101960786, 1)
+
+[node name="Lvl3Background" parent="." unique_id=352075441 instance=ExtResource("7_h3ao8")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]

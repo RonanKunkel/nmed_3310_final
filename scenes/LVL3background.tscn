@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://4ccr8wh0xc15"]
+
+[ext_resource type="Texture2D" uid="uid://biox0hhikly37" path="res://assets/parallax/Level3/L3.06.png" id="1_x66vm"]
+[ext_resource type="Texture2D" uid="uid://vdkg3th8a3kt" path="res://assets/parallax/Level3/L3.05.png" id="2_vbh8k"]
+[ext_resource type="Texture2D" uid="uid://cvrr7nyfnjfk3" path="res://assets/parallax/Level3/L3.04.png" id="3_xnbh3"]
+[ext_resource type="Texture2D" uid="uid://usgxh5gl2hvx" path="res://assets/parallax/Level3/L3.03.png" id="4_8ogo5"]
+[ext_resource type="Texture2D" uid="uid://btl2whmx1ee7f" path="res://assets/parallax/Level3/L3.02.png" id="5_fjsfx"]
+[ext_resource type="Texture2D" uid="uid://datujdcwvulhv" path="res://assets/parallax/Level3/L3.01.png" id="6_xxfb5"]
+
+[node name="Lvl3Background" type="Node2D" unique_id=352075441]
+
+[node name="Back" type="Parallax2D" parent="." unique_id=345832541]
+repeat_size = Vector2(640, 315)
+
+[node name="TextureRect" type="TextureRect" parent="Back" unique_id=1904304363]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("1_x66vm")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="5th" type="Parallax2D" parent="." unique_id=662175902]
+scroll_scale = Vector2(0.3, 1)
+repeat_size = Vector2(640, 315)
+
+[node name="TextureRect" type="TextureRect" parent="5th" unique_id=128591926]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_vbh8k")
+metadata/_edit_use_anchors_ = true
+
+[node name="4th" type="Parallax2D" parent="." unique_id=1805210493]
+scroll_scale = Vector2(0.3, 1)
+repeat_size = Vector2(1280, 630)
+
+[node name="TextureRect" type="TextureRect" parent="4th" unique_id=732630619]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("3_xnbh3")
+metadata/_edit_use_anchors_ = true
+
+[node name="3rd" type="Parallax2D" parent="." unique_id=310264691]
+scroll_scale = Vector2(0.4, 1)
+repeat_size = Vector2(640, 315)
+
+[node name="TextureRect" type="TextureRect" parent="3rd" unique_id=1739879441]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("4_8ogo5")
+metadata/_edit_use_anchors_ = true
+
+[node name="2nd" type="Parallax2D" parent="." unique_id=797122832]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(640, 315)
+
+[node name="TextureRect" type="TextureRect" parent="2nd" unique_id=188543303]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("5_fjsfx")
+metadata/_edit_use_anchors_ = true
+
+[node name="Front" type="Parallax2D" parent="." unique_id=1225850365]
+scroll_scale = Vector2(0.7, 1)
+repeat_size = Vector2(640, 315)
+
+[node name="TextureRect" type="TextureRect" parent="Front" unique_id=992655383]
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("6_xxfb5")
+metadata/_edit_use_anchors_ = true
