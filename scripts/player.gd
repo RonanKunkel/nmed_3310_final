@@ -23,13 +23,13 @@ const FRICTION = 600.0
 const ICE_ACCELERATION = 60.0
 const ICE_FRICTION = 40.0
 const ICE_SPEED = 200
-const ICE_AIR_FRICTION = 10.0
+const ICE_AIR_FRICTION = 5.0
 const MIN_JUMP_CUT = -75.0
 
 var current_acceleration = ACCELERATION
 var current_friction = FRICTION
 var on_ice = false
-
+var jumped_from_ice = false
 const LIGHT_SHIFT = 10.0
 const LIGHT_SPEED = 8.0
 const CAMERA_SHIFT = 20.0
@@ -142,6 +142,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Jump
 	if Input.is_action_pressed("jump") and is_on_floor():
+		jumped_from_ice = on_ice
 		velocity.y = JUMP_VELOCITY
 
 	if Input.is_action_just_released("jump"):
@@ -153,6 +154,7 @@ func _physics_process(delta: float) -> void:
 	# Horizontal movement
 	var direction := Input.get_axis("move_left", "move_right")
 	if is_on_floor():
+		jumped_from_ice = false
 		var target_speed = ICE_SPEED if on_ice else SPEED
 		if direction:
 			velocity.x = move_toward(velocity.x, direction * target_speed, current_acceleration * delta)
@@ -160,8 +162,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0.0, current_friction * delta)
 	else:
 		# In air — preserve momentum, very low friction
-		var air_target_speed = ICE_SPEED if on_ice else SPEED
-		var air_friction = ICE_AIR_FRICTION if on_ice else current_friction
+		var air_target_speed = ICE_SPEED if jumped_from_ice else SPEED
+		var air_friction = ICE_AIR_FRICTION if jumped_from_ice else current_friction
 		if direction:
 			velocity.x = move_toward(velocity.x, direction * air_target_speed, current_acceleration * delta)
 		else:
