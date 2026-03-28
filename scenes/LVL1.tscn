@@ -1069,6 +1069,8 @@ _data = {
 [node name="game" type="Node2D" unique_id=491776932]
 
 [node name="DevMenu" parent="." unique_id=2081920975 instance=ExtResource("11_dd483")]
+scale = Vector2(0.2, 0.2)
+transform = Transform2D(0.2, 0, 0, 0.2, 0, 0)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1016579802]
 z_index = 2
@@ -1084,7 +1086,7 @@ position = Vector2(4231, -1180)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=2086395314]
 position = Vector2(0, -6)
-zoom = Vector2(5, 5)
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
@@ -1473,11 +1475,11 @@ position = Vector2(6113, -695)
 position = Vector2(5729, -1080)
 
 [node name="Background2" parent="." unique_id=838031488 instance=ExtResource("12_5g376")]
-visible = false
 z_index = -1
 position = Vector2(-1, 1)
 
 [node name="Backgroundfix" parent="." unique_id=1089960315 instance=ExtResource("13_f8vx2")]
+visible = false
 z_index = -2
 position = Vector2(4615, -1130)
 scale = Vector2(1.6588044, 1.2989945)

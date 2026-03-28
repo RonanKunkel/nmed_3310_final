@@ -7,34 +7,38 @@
 
 [node name="Background" type="Node2D" unique_id=838031488]
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1988809868]
-repeat_size = Vector2(1922, 0)
+[node name="Back" type="Parallax2D" parent="." unique_id=1988809868]
+repeat_size = Vector2(640, 315)
 
-[node name="L1_04" type="Sprite2D" parent="Parallax2D" unique_id=1514308994]
-position = Vector2(961, 541)
-scale = Vector2(3.0031247, 4.3280005)
+[node name="TextureRect" type="TextureRect" parent="Back" unique_id=356333902]
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("1_cbsqf")
+stretch_mode = 1
 
-[node name="Parallax2D2" type="Parallax2D" parent="." unique_id=1709634817]
-repeat_size = Vector2(1922, 0)
+[node name="3rd" type="Parallax2D" parent="." unique_id=1709634817]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(640, 315)
 
-[node name="L1_03" type="Sprite2D" parent="Parallax2D2" unique_id=1377350533]
-position = Vector2(961, 541)
-scale = Vector2(3.003125, 4.328)
+[node name="TextureRect" type="TextureRect" parent="3rd" unique_id=1874772826]
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("2_wisxt")
 
-[node name="Parallax2D3" type="Parallax2D" parent="." unique_id=760604966]
-repeat_size = Vector2(1922, 0)
+[node name="2nd" type="Parallax2D" parent="." unique_id=760604966]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(640, 315)
 
-[node name="L1_02" type="Sprite2D" parent="Parallax2D3" unique_id=1538474692]
-position = Vector2(961.00006, 541)
-scale = Vector2(3.003125, 4.328)
+[node name="TextureRect" type="TextureRect" parent="2nd" unique_id=1562109224]
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("3_wax1t")
 
-[node name="Parallax2D4" type="Parallax2D" parent="." unique_id=1056739342]
-repeat_size = Vector2(1922, 0)
+[node name="Front" type="Parallax2D" parent="." unique_id=1056739342]
+scroll_scale = Vector2(0.7, 0.7)
+repeat_size = Vector2(640, 315)
 
-[node name="L1_01" type="Sprite2D" parent="Parallax2D4" unique_id=1487992971]
-position = Vector2(961, 541.00006)
-scale = Vector2(3.0031247, 4.328)
+[node name="TextureRect" type="TextureRect" parent="Front" unique_id=783610624]
+offset_right = 640.0
+offset_bottom = 360.0
 texture = ExtResource("4_1tmhi")
