@@ -6,7 +6,7 @@ extends CharacterBody2D
 @onready var death_timer = $DeathTimer
 @onready var collision = $CollisionShape2D
 @onready var dev_label = $"../DevMenu/DevLabel"
-@onready var tilemap: TileMap = $"../TileMap2"  # adjust path to your TileMap
+@onready var tilemap: TileMap = $"../TileMap"  
 var has_key: bool = false
 var is_dead = false
 
@@ -18,9 +18,17 @@ var noclip := false
 
 var SPEED = 105.0
 const JUMP_VELOCITY = -291.75
-var ACCELERATION = 450.0
-var FRICTION = 600.0
+const ACCELERATION = 450.0
+const FRICTION = 600.0
+const ICE_ACCELERATION = 60.0
+const ICE_FRICTION = 40.0
+const ICE_SPEED = 200
+const ICE_AIR_FRICTION = 10.0
 const MIN_JUMP_CUT = -75.0
+
+var current_acceleration = ACCELERATION
+var current_friction = FRICTION
+var on_ice = false
 
 const LIGHT_SHIFT = 10.0
 const LIGHT_SPEED = 8.0
@@ -140,14 +148,24 @@ func _physics_process(delta: float) -> void:
 		if velocity.y < MIN_JUMP_CUT:
 			velocity.y = MIN_JUMP_CUT
 
+	check_tile_under_player()
+	
 	# Horizontal movement
 	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = move_toward(velocity.x, direction * SPEED, ACCELERATION * delta)
+	if is_on_floor():
+		var target_speed = ICE_SPEED if on_ice else SPEED
+		if direction:
+			velocity.x = move_toward(velocity.x, direction * target_speed, current_acceleration * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0.0, current_friction * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0.0, FRICTION * delta)
-	
-	check_tile_under_player()
+		# In air — preserve momentum, very low friction
+		var air_target_speed = ICE_SPEED if on_ice else SPEED
+		var air_friction = ICE_AIR_FRICTION if on_ice else current_friction
+		if direction:
+			velocity.x = move_toward(velocity.x, direction * air_target_speed, current_acceleration * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0.0, air_friction * delta)
 	move_and_slide()
 
 	# Check if player is standing still on the floor
@@ -190,18 +208,15 @@ func check_tile_under_player():
 	var feet_pos = global_position + Vector2(0, 16)
 	var tile_pos = tilemap.local_to_map(tilemap.to_local(feet_pos))
 	var tile_data = tilemap.get_cell_tile_data(0, tile_pos)
-	if tile_data:
-		var tile_type = tile_data.get_custom_data("tile_type")
-		if tile_type == 1:
-			SPEED = 175
-			FRICTION = 350
-			ACCELERATION = 250  # slow down on this tile, for example
-		else:
-			SPEED = 105
+	
+	if tile_data and tile_data.get_custom_data("tile_type") == 3:
+		on_ice = true
+		current_acceleration = ICE_ACCELERATION
+		current_friction = ICE_FRICTION
 	else:
-		SPEED = 105
-		FRICTION = 600
-		ACCELERATION = 450
+		on_ice = false
+		current_acceleration = ACCELERATION
+		current_friction = FRICTION
 		
 		
 		
