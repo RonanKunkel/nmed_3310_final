@@ -1,11 +1,10 @@
 extends StaticBody2D
 
-# How long the platform stays visible before disappearing
 @export var visible_duration: float = 3.0
-# How long the platform stays hidden before reappearing
 @export var hidden_duration: float = 2.0
-# How long the fade-out animation takes
 @export var fade_duration: float = 0.5
+# If set, the platform will only activate when this lever is toggled on
+@export var linked_lever: Area2D
 
 @onready var timer: Timer = $Timer
 @onready var collision: CollisionShape2D = $CollisionShape2D
@@ -13,11 +12,21 @@ extends StaticBody2D
 enum State { VISIBLE, FADING, HIDDEN }
 var state: State = State.VISIBLE
 var fade_elapsed: float = 0.0
+var lever_controlled: bool = false
 
 func _ready() -> void:
 	timer.one_shot = true
 	timer.timeout.connect(_on_timer_timeout)
-	_enter_visible()
+	
+	if linked_lever:
+		lever_controlled = true
+		linked_lever.lever_toggled.connect(_on_lever_toggled)
+		# Start dormant until the lever is pulled
+		process_mode = Node.PROCESS_MODE_DISABLED
+		visible = false
+		collision.disabled = true
+	else:
+		_enter_visible()
 
 func _process(delta: float) -> void:
 	if state == State.FADING:
@@ -26,6 +35,20 @@ func _process(delta: float) -> void:
 		modulate.a = lerp(1.0, 0.0, t)
 		if t >= 1.0:
 			_enter_hidden()
+
+func _on_lever_toggled(lever_state: bool) -> void:
+	if lever_state:
+		process_mode = Node.PROCESS_MODE_INHERIT
+		visible = true
+		_enter_visible()
+	else:
+		# Immediately kill the cycle and hide
+		timer.stop()
+		process_mode = Node.PROCESS_MODE_DISABLED
+		visible = false
+		collision.disabled = true
+		modulate.a = 1.0
+		state = State.VISIBLE  # Reset so it starts fresh next time lever is on
 
 func _enter_visible() -> void:
 	state = State.VISIBLE
@@ -37,7 +60,6 @@ func _enter_visible() -> void:
 func _enter_fading() -> void:
 	state = State.FADING
 	fade_elapsed = 0.0
-	# Disable collision partway through the fade so the player drops naturally
 	await get_tree().create_timer(fade_duration * 0.5).timeout
 	if state == State.FADING:
 		collision.disabled = true
