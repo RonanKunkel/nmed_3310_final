@@ -1343,11 +1343,11 @@ script = ExtResource("4_ls0pc")
 shape = SubResource("WorldBoundaryShape2D_mg3cd")
 
 [node name="player" parent="." unique_id=632898850 instance=ExtResource("5_728li")]
-position = Vector2(2752, -435)
+position = Vector2(49, -1138)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1839318353]
 position = Vector2(0, -6)
-zoom = Vector2(5, 5)
+zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
