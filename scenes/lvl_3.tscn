@@ -1524,6 +1524,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v63pg"]
 size = Vector2(154, 150.5)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vo4vj"]
+a = Vector2(5.119301, -8.869751)
+b = Vector2(-17.55127, 14.218475)
+
 [sub_resource type="Animation" id="Animation_rqi33"]
 resource_name = "KeyDoor"
 length = 1.5
@@ -2009,11 +2013,18 @@ region_rect = Rect2(130.89429, 0, 26.234207, 27.080748)
 
 [node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1151149066]
 position = Vector2(-419.45105, -1093.6449)
-scale = Vector2(-4.0140157, 2.8585978)
+rotation = -3.1415927
+scale = Vector2(4.0140157, -2.8585978)
 texture = ExtResource("17_vo4vj")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(130.89429, 0, 26.234207, 27.080748)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D4" unique_id=1126607199]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4/StaticBody2D" unique_id=772004720]
+scale = Vector2(1, 1.0000001)
+shape = SubResource("SegmentShape2D_vo4vj")
 
 [node name="key_door3" parent="." unique_id=1812086350 instance=ExtResource("8_mr1bn")]
 position = Vector2(1222, -153)
