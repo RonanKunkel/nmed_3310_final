@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cgwfk6c10faqw"]
+[gd_scene format=3 uid="uid://bm625mb5mnh7t"]
 
-[ext_resource type="Script" uid="uid://dttpifqln8ur6" path="res://scenes/projectileblack.gd" id="1_jg8ga"]
-[ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="1_porr8"]
+[ext_resource type="Script" uid="uid://dttpifqln8ur6" path="res://scenes/projectileblack.gd" id="1_xly62"]
+[ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="2_snxkh"]
 
 [sub_resource type="Animation" id="Animation_niqsm"]
 resource_name = "Dragon_Fire"
@@ -47,18 +47,19 @@ size = Vector2(15.5, 16.75)
 [node name="Node2D" type="Node2D" unique_id=125072654]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=984488463 groups=["player"]]
-script = ExtResource("1_jg8ga")
+script = ExtResource("1_xly62")
 
 [node name="Muzzle" type="Marker2D" parent="CharacterBody2D" unique_id=1395090635]
-position = Vector2(4, 4)
+position = Vector2(3, -13)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1638212218]
-position = Vector2(0.73706853, 0)
+position = Vector2(1, 0)
+rotation = -1.5707964
 scale = Vector2(0.97977453, 1)
-texture = ExtResource("1_porr8")
+texture = ExtResource("2_snxkh")
 hframes = 2
 region_enabled = true
-region_rect = Rect2(130.73532, 3.3291855, 52.440887, 24.853203)
+region_rect = Rect2(130.67422, 3.3291855, 54.485855, 24.853203)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1715545931]
 root_node = NodePath("../..")
@@ -66,7 +67,7 @@ libraries/ = SubResource("AnimationLibrary_fdg4b")
 autoplay = &"Dragon_Fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1789778245]
-position = Vector2(2.75, 0)
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_niqsm")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=2040829453]
