@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://q61sx3n2531s"]
+
+[ext_resource type="Script" uid="uid://dtib77caj147j" path="res://scenes/DragonProjectileBlack.gd" id="1_tkbhg"]
+[ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="2_iikdp"]
+
+[sub_resource type="Animation" id="Animation_niqsm"]
+resource_name = "Dragon_Fire"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_dwnmp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fw48v"]
+_data = {
+&"Dragon_Fire": SubResource("Animation_niqsm"),
+&"RESET": SubResource("Animation_dwnmp")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wh4t5"]
+size = Vector2(15.5, 16.75)
+
+[node name="DragonProjectileBlack" type="Node2D" unique_id=1474190113]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1377520635 groups=["player"]]
+script = ExtResource("1_tkbhg")
+
+[node name="Muzzle" type="Marker2D" parent="CharacterBody2D" unique_id=1506592621]
+position = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1981953389]
+scale = Vector2(0.97977453, 1)
+texture = ExtResource("2_iikdp")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(131, 5, 52, 21)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1589984890]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_fw48v")
+autoplay = &"Dragon_Fire"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=377092573]
+position = Vector2(2.75, 0)
+shape = SubResource("RectangleShape2D_wh4t5")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=885675473]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

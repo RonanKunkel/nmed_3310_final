@@ -15,7 +15,7 @@ script = ExtResource("1_fttkb")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=29575087]
 texture = SubResource("CompressedTexture2D_yk2u2")
 region_enabled = true
-region_rect = Rect2(1, 4, 14, 8)
+region_rect = Rect2(33, 4, 14, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=741458494]
 rotation = -1.5707964

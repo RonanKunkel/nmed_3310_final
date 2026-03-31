@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://vjsdkp4j6m8a"]
+
+[ext_resource type="Script" uid="uid://u0nevxm6delb" path="res://scenes/MushroomProjectileBlack.gd" id="1_36y7x"]
+[ext_resource type="Texture2D" uid="uid://c3g6ydf02gm0c" path="res://assets/sprites/mushroom_shot.png" id="1_l3m3u"]
+
+[sub_resource type="Animation" id="Animation_niqsm"]
+resource_name = "Dragon_Fire"
+length = 2.86
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_jdqvy"]
+resource_name = "Mushroom_Shoot"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_dwnmp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0brm8"]
+_data = {
+&"Dragon_Fire": SubResource("Animation_niqsm"),
+&"Mushroom_Shoot": SubResource("Animation_jdqvy"),
+&"RESET": SubResource("Animation_dwnmp")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4jca"]
+radius = 6.0
+height = 26.0
+
+[node name="MushroomProjectileBlack" type="Node2D" unique_id=2007491946]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=943957626 groups=["player"]]
+script = ExtResource("1_36y7x")
+
+[node name="Muzzle" type="Marker2D" parent="CharacterBody2D" unique_id=388442452]
+position = Vector2(-16, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1831989071]
+rotation = -1.5707964
+texture = ExtResource("1_l3m3u")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 96, 92, 25)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1684767234]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_0brm8")
+autoplay = &"Mushroom_Shoot"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1485136157]
+position = Vector2(2, -5)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_f4jca")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=130517823]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

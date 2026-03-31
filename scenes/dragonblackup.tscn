@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bm625mb5mnh7t"]
 
-[ext_resource type="Script" uid="uid://dttpifqln8ur6" path="res://scenes/projectileblack.gd" id="1_xly62"]
+[ext_resource type="Script" uid="uid://d061fg3uaathg" path="res://scenes/dragonblackup.gd" id="1_xly62"]
 [ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="2_snxkh"]
 
 [sub_resource type="Animation" id="Animation_niqsm"]

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://xg0gl2dwesuf"]
+
+[ext_resource type="Script" uid="uid://biidjwgh0ri5k" path="res://scenes/platform_black.gd" id="1_ld5iq"]
+[ext_resource type="Texture2D" uid="uid://cvxrbrcr1kfx1" path="res://assets/tilesets/platform_stone.png" id="2_7km6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ifbs"]
+size = Vector2(48, 8)
+
+[node name="platform_black" type="CharacterBody2D" unique_id=94441463]
+script = ExtResource("1_ld5iq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1101520349]
+texture = ExtResource("2_7km6j")
+region_enabled = true
+region_rect = Rect2(0, 84, 48, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2009769411]
+shape = SubResource("RectangleShape2D_7ifbs")

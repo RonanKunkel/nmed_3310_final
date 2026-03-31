@@ -23,7 +23,7 @@ script = ExtResource("1_4b813")
 rotation = -1.5707964
 texture = ExtResource("2_5eccy")
 region_enabled = true
-region_rect = Rect2(7, 44, 18, 8)
+region_rect = Rect2(135, 44, 18, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=490056870]
 position = Vector2(-5.463924e-08, -4)
@@ -31,7 +31,7 @@ rotation = -1.5707964
 shape = SubResource("RectangleShape2D_gjmc2")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=63421159]
-color = Color(0.45882353, 0.654902, 0.2627451, 1)
+color = Color(0.87058824, 0.61960787, 0.25490198, 1)
 texture = SubResource("GradientTexture2D_qni05")
 offset = Vector2(0, 0.13)
 texture_scale = 0.9

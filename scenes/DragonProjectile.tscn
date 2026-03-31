@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cgwfk6c10faqw"]
 
-[ext_resource type="Script" uid="uid://dttpifqln8ur6" path="res://scenes/projectileblack.gd" id="1_jg8ga"]
+[ext_resource type="Script" uid="uid://d0a1t2dh51iwu" path="res://scenes/DragonProjectile.gd" id="1_jg8ga"]
 [ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="1_porr8"]
 
 [sub_resource type="Animation" id="Animation_niqsm"]
@@ -58,7 +58,7 @@ scale = Vector2(0.97977453, 1)
 texture = ExtResource("1_porr8")
 hframes = 2
 region_enabled = true
-region_rect = Rect2(130.73532, 3.3291855, 52.440887, 24.853203)
+region_rect = Rect2(3, 5, 52, 21)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1715545931]
 root_node = NodePath("../..")
