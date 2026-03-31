@@ -6,12 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjmc2"]
 size = Vector2(7, 10.5)
 
-[sub_resource type="Gradient" id="Gradient_gjmc2"]
+[sub_resource type="Gradient" id="Gradient_wsprr"]
 offsets = PackedFloat32Array(0, 0.57875, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.84757704, 0.56756204, 0.24793604, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_qni05"]
-gradient = SubResource("Gradient_gjmc2")
+gradient = SubResource("Gradient_wsprr")
 fill = 1
 fill_from = Vector2(0.52136755, 0.4974359)
 fill_to = Vector2(0.5, 0)
@@ -30,7 +30,7 @@ rotation = -1.5707964
 shape = SubResource("RectangleShape2D_gjmc2")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=63421159]
-color = Color(1, 0.63529414, 0.24313726, 1)
+color = Color(0.45882353, 0.654902, 0.2627451, 1)
 texture = SubResource("GradientTexture2D_qni05")
 offset = Vector2(0, 0.13)
 texture_scale = 0.9

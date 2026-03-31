@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://rlo5by81713h"]
+
+[ext_resource type="Script" uid="uid://nt1koh2pihp3" path="res://scenes/projectile_mushroom_ice.gd" id="1_5idyv"]
+[ext_resource type="Texture2D" uid="uid://c3g6ydf02gm0c" path="res://assets/sprites/mushroom_shot.png" id="1_7dimp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5idyv"]
+radius = 5.0990195
+
+[sub_resource type="Gradient" id="Gradient_gjmc2"]
+offsets = PackedFloat32Array(0, 0.57875, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.84757704, 0.56756204, 0.24793604, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yvl5h"]
+gradient = SubResource("Gradient_gjmc2")
+fill = 1
+fill_from = Vector2(0.52136755, 0.4974359)
+fill_to = Vector2(0.5, 0)
+
+[node name="projectile_mushroom_ice" type="Area2D" unique_id=2087449131]
+script = ExtResource("1_5idyv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1096134969]
+texture = ExtResource("1_7dimp")
+region_enabled = true
+region_rect = Rect2(2, 82, 12, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2088959158]
+shape = SubResource("CircleShape2D_5idyv")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=851336400]
+color = Color(0.30980393, 0.56078434, 0.7294118, 1)
+texture = SubResource("GradientTexture2D_yvl5h")
+offset = Vector2(0, 0.13)
+texture_scale = 0.9
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

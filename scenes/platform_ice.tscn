@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cp0sr7nu75eea"]
+
+[ext_resource type="Script" uid="uid://d1srfq0fk7hcg" path="res://scenes/platforms.gd" id="1_tekly"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e0wvy"]
+load_path = "res://.godot/imported/platform_stone.png-c8388fd9f5ed181f47d8ff36c70db8a4.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7r50"]
+size = Vector2(48, 8)
+
+[node name="platform_ice" type="CharacterBody2D" unique_id=322873346]
+script = ExtResource("1_tekly")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=730421358]
+texture = SubResource("CompressedTexture2D_e0wvy")
+region_enabled = true
+region_rect = Rect2(0, 52, 48, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073568743]
+shape = SubResource("RectangleShape2D_r7r50")

@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ene5242y7mu6" path="res://assets/parallax/Level2/L2.05.png" id="1_vxmc0"]
 [ext_resource type="Texture2D" uid="uid://b0oq1nino53tq" path="res://assets/parallax/Level2/L2.04.png" id="2_blh8a"]
 [ext_resource type="Texture2D" uid="uid://cebrfuihr28a6" path="res://assets/parallax/Level2/L2.03.png" id="3_0anc2"]
+[ext_resource type="Texture2D" uid="uid://ck7lwo5gxkblr" path="res://assets/parallax/Level2/L2.04_L.png" id="3_blh8a"]
 [ext_resource type="Texture2D" uid="uid://bv4wsgxralxxv" path="res://assets/parallax/Level2/L2.02.png" id="4_64sj4"]
 [ext_resource type="Texture2D" uid="uid://cuy0sw5nes0ft" path="res://assets/parallax/Level2/L2.01.png" id="5_7mub4"]
 
@@ -27,6 +28,11 @@ offset_right = 640.0
 offset_bottom = 360.0
 texture = ExtResource("2_blh8a")
 metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="4th" unique_id=788701469]
+position = Vector2(320, 180)
+scale = Vector2(1, 1.44)
+texture = ExtResource("3_blh8a")
 
 [node name="3rd" type="Parallax2D" parent="." unique_id=1994372078]
 scroll_scale = Vector2(0.5, 1)

@@ -31,10 +31,10 @@ var current_friction = FRICTION
 var on_ice = false
 var jumped_from_ice = false
 var was_on_floor = false
-const LIGHT_SHIFT = 10.0
-const LIGHT_SPEED = 8.0
-const CAMERA_SHIFT = 20.0
-const CAMERA_SPEED = 4.0
+const LIGHT_SHIFT = 20.0
+const LIGHT_SPEED = 16.0
+const CAMERA_SHIFT = 40.0
+const CAMERA_SPEED = 8.0
 
 var start_position: Vector2
 var candle_start_pos: Vector2
@@ -257,7 +257,8 @@ func handle_noclip(delta: float) -> void:
 	if move_input.length() > 1.0:
 		move_input = move_input.normalized()
 
-	global_position += move_input * SPEED * delta
+	var noclip_speed = SPEED * 4
+	global_position += move_input * noclip_speed * delta
 
 	if move_input.x < 0.0:
 		anim.flip_h = true

@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://bhonb1c0418av"]
+
+[ext_resource type="Texture2D" uid="uid://c3g6ydf02gm0c" path="res://assets/sprites/mushroom_shot.png" id="1_ky3sv"]
+
+[sub_resource type="GDScript" id="GDScript_8kupo"]
+script/source = "extends CharacterBody2D
+
+@onready var ShootTimer = $Timer
+# Preload the bullet scene
+var projectile_scene = preload(\"res://scenes/projectile_mushroom_ice.tscn\")
+func _ready():
+	ShootTimer.start()
+
+func _on_timer_timeout() -> void:
+	shoot(get_tree().get_first_node_in_group(\"player\").global_position)
+	
+func shoot(_target_position: Vector2):
+	# 1. Instantiate the bullet
+	var projectile_mushroom_ice = projectile_scene.instantiate()
+	
+	# 2. Position it at the Muzzle
+	projectile_mushroom_ice.global_position = $Muzzle.global_position
+	
+	# 3. Calculate direction towards target (e.g., the player)
+	#var dir = (target_position - $Muzzle.global_position).normalized()
+	#projectile.direction = dir
+	
+	# 4. Add the bullet to the main scene, NOT as a child of the mob
+	get_tree().root.add_child(projectile_mushroom_ice)
+	
+"
+
+[sub_resource type="Animation" id="Animation_niqsm"]
+resource_name = "Dragon_Fire"
+length = 2.86
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_jdqvy"]
+resource_name = "Mushroom_Shoot"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_dwnmp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oox17"]
+_data = {
+&"Dragon_Fire": SubResource("Animation_niqsm"),
+&"Mushroom_Shoot": SubResource("Animation_jdqvy"),
+&"RESET": SubResource("Animation_dwnmp")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0g84k"]
+radius = 6.0
+height = 26.0
+
+[node name="MushroomProjectileIce" type="Node2D" unique_id=1935444828]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=900356667 groups=["player"]]
+script = SubResource("GDScript_8kupo")
+
+[node name="Muzzle" type="Marker2D" parent="CharacterBody2D" unique_id=2024362116]
+position = Vector2(-16, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=553497047]
+rotation = -1.5707964
+texture = ExtResource("1_ky3sv")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 48, 92, 25)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=190853126]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_oox17")
+autoplay = &"Mushroom_Shoot"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1667169275]
+position = Vector2(2, -5)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_0g84k")
+
+[node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=1380874834]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
