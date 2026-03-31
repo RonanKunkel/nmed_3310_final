@@ -42,7 +42,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh4t5"]
-size = Vector2(15.5, 16.75)
+size = Vector2(10.75, 17)
 
 [node name="DragonProjectileBlack" type="Node2D" unique_id=1474190113]
 
@@ -65,7 +65,7 @@ libraries/ = SubResource("AnimationLibrary_fw48v")
 autoplay = &"Dragon_Fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=377092573]
-position = Vector2(2.75, 0)
+position = Vector2(-3.375, -1.5)
 shape = SubResource("RectangleShape2D_wh4t5")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=885675473]

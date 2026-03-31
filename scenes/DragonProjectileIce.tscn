@@ -53,7 +53,6 @@ script = ExtResource("1_36onx")
 position = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=45046768]
-position = Vector2(0.73706853, 0)
 scale = Vector2(0.97977453, 1)
 texture = ExtResource("1_r3vio")
 hframes = 2
@@ -66,7 +65,7 @@ libraries/ = SubResource("AnimationLibrary_36onx")
 autoplay = &"Dragon_Fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=233696053]
-position = Vector2(-2.5, -2)
+position = Vector2(-3.5, -2)
 shape = SubResource("RectangleShape2D_2asqk")
 
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=1847458067]
