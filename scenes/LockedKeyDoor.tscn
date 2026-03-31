@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bkcxqd6e1uyja"]
+
+[ext_resource type="Script" uid="uid://c7aiq6c4gie24" path="res://scenes/locked_key_door.gd" id="1_iv0qn"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_okl1l"]
+load_path = "res://.godot/imported/Door_grate.png-9670b1acf5ffc7ef3cf4176c8f59e1cc.ctex"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iv0qn"]
+radius = 8.0
+height = 33.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wc8ta"]
+size = Vector2(35, 20)
+
+[sub_resource type="Animation" id="Animation_iv0qn"]
+resource_name = "Door Unlocked"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.6, 0.76666665, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_wc8ta"]
+resource_name = "KeyDoor"
+length = 3.0
+
+[sub_resource type="Animation" id="Animation_lw2t6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mheew"]
+_data = {
+&"Door Unlocked": SubResource("Animation_iv0qn"),
+&"KeyDoor": SubResource("Animation_wc8ta"),
+&"RESET": SubResource("Animation_lw2t6")
+}
+
+[node name="LockedKeyDoor" type="AnimatableBody2D" unique_id=341231414]
+script = ExtResource("1_iv0qn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=144237678]
+position = Vector2(8.881784e-16, 8.881784e-16)
+texture = SubResource("CompressedTexture2D_okl1l")
+hframes = 5
+region_enabled = true
+region_rect = Rect2(0, 96, 80, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=352117501]
+shape = SubResource("CapsuleShape2D_iv0qn")
+
+[node name="doorarea" type="Area2D" parent="." unique_id=427000357]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="doorarea" unique_id=1183653310]
+shape = SubResource("RectangleShape2D_wc8ta")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1802575739]
+libraries/ = SubResource("AnimationLibrary_mheew")

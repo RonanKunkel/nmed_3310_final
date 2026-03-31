@@ -59,7 +59,7 @@ scale = Vector2(0.97977453, 1)
 texture = ExtResource("2_snxkh")
 hframes = 2
 region_enabled = true
-region_rect = Rect2(130.67422, 3.3291855, 54.485855, 24.853203)
+region_rect = Rect2(130.67422, 5, 52.325775, 21)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=1715545931]
 root_node = NodePath("../..")
