@@ -1985,6 +1985,13 @@ _data = {
 &"spike3": SubResource("Animation_mbx00")
 }
 
+[sub_resource type="Gradient" id="Gradient_bppmc"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bxcpi"]
+gradient = SubResource("Gradient_bppmc")
+fill_from = Vector2(0.47391304, 0)
+fill_to = Vector2(0.4695652, 1)
+
 [node name="game" type="Node2D" unique_id=491776932]
 
 [node name="DevMenu" parent="." unique_id=2081920975 instance=ExtResource("11_dd483")]
@@ -2387,3 +2394,10 @@ z_index = -10
 
 [node name="Area2D2" parent="." unique_id=1105578825 instance=ExtResource("14_aa35m")]
 position = Vector2(6802, 336)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2021423943]
+position = Vector2(6799, -142.00005)
+scale = Vector2(4.281248, 15.937501)
+color = Color(0.30980393, 0.56078434, 0.7294118, 1)
+energy = 1.2
+texture = SubResource("GradientTexture2D_bxcpi")
