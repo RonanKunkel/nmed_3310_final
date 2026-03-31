@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nhpul7bha4fe"
-path="res://.godot/imported/level_4_terrain(a).png-34a284f16ab3ad84d499bdb6661878b5.ctex"
+uid="uid://dd71wohmlgubt"
+path="res://.godot/imported/level_4_terrain(a).png-d85fcfee0226bbdbf7809535d44a533d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aseprite_files/level_4_terrain(a).png"
-dest_files=["res://.godot/imported/level_4_terrain(a).png-34a284f16ab3ad84d499bdb6661878b5.ctex"]
+source_file="res://assets/tilesets/level_4_terrain(a).png"
+dest_files=["res://.godot/imported/level_4_terrain(a).png-d85fcfee0226bbdbf7809535d44a533d.ctex"]
 
 [params]
 

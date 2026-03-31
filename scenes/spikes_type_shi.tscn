@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://qfuoxa8e4b6" path="res://scenes/killzone.tscn" id="2_vae4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a1y00"]
-size = Vector2(30.867468, 17.838305)
+size = Vector2(27.009024, 17.838305)
 
 [node name="Node2D" type="Node2D" unique_id=801085471]
 
