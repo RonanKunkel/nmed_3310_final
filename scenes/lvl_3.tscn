@@ -15,15 +15,16 @@
 [ext_resource type="PackedScene" uid="uid://bwpssnl7bi014" path="res://scenes/Ice_Platforms_timed.tscn" id="12_7nyt0"]
 [ext_resource type="PackedScene" uid="uid://xg0gl2dwesuf" path="res://scenes/platform_black.tscn" id="14_mg484"]
 [ext_resource type="Texture2D" uid="uid://cpsmkycvkw5wl" path="res://assets/sprites/crown&plinth.png" id="16_qgkrp"]
-[ext_resource type="Script" uid="uid://cfqwxmvre8n1t" path="res://scenes/endgame.gd" id="16_rqi33"]
+[ext_resource type="Script" path="res://scenes/endgame.gd" id="16_rqi33"]
 [ext_resource type="PackedScene" uid="uid://bkcxqd6e1uyja" path="res://scenes/LockedKeyDoor.tscn" id="17_mg484"]
 [ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="17_vo4vj"]
 [ext_resource type="PackedScene" uid="uid://dc87o6vuryqnf" path="res://scenes/key.tscn" id="18_vo4vj"]
 [ext_resource type="PackedScene" uid="uid://bm625mb5mnh7t" path="res://scenes/dragonblackup.tscn" id="19_vbsd7"]
-[ext_resource type="Script" uid="uid://bf81xxdpomcyv" path="res://scenes/crown.gd" id="20_ffys1"]
+[ext_resource type="Script" path="res://scenes/crown.gd" id="20_ffys1"]
 [ext_resource type="PackedScene" uid="uid://cddbjrlheod1y" path="res://scenes/spikes_type_shi3.tscn" id="23_mg484"]
 [ext_resource type="PackedScene" uid="uid://vjsdkp4j6m8a" path="res://scenes/MushroomProjectileBlack.tscn" id="24_27c8d"]
 [ext_resource type="PackedScene" uid="uid://bigm3rutbmci1" path="res://scenes/CrownPlinth.tscn" id="24_m1tv4"]
+[ext_resource type="PackedScene" uid="uid://epkpjx4nmts8" path="res://scenes/platform.tscn" id="24_m1tv4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27c8d"]
 resource_name = "Ice_Stone"
@@ -2270,44 +2271,6 @@ _data = {
 &"move": SubResource("Animation_86xq1")
 }
 
-[sub_resource type="Animation" id="Animation_s0p5c"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1312, -211)]
-}
-
-[sub_resource type="Animation" id="Animation_7om64"]
-resource_name = "move"
-length = 8.033334
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 8.033334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1312, -211), Vector2(1312, -912)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fnnx1"]
-_data = {
-&"RESET": SubResource("Animation_s0p5c"),
-&"move": SubResource("Animation_7om64")
-}
-
 [sub_resource type="Animation" id="Animation_fnnx1"]
 length = 0.001
 tracks/0/type = "value"
@@ -2421,7 +2384,8 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_108hs"]
 _data = {
 &"RESET": SubResource("Animation_ol4a5"),
-&"collect": SubResource("Animation_twnxe")
+&"collcet": SubResource("Animation_twnxe"),
+&"collect": SubResource("Animation_108hs")
 }
 
 [node name="Lvl3" type="Node2D" unique_id=969930667]
@@ -2451,7 +2415,7 @@ position = Vector2(19, -174)
 shape = SubResource("WorldBoundaryShape2D_dj1r7")
 
 [node name="player" parent="." unique_id=632898850 instance=ExtResource("5_3ttfa")]
-position = Vector2(643, -1247)
+position = Vector2(1407, -900)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1233642076]
 position = Vector2(0, -6)
@@ -2688,19 +2652,6 @@ autoplay = &"move"
 [node name="dragon" parent="platform_black15" unique_id=775449533 instance=ExtResource("19_vbsd7")]
 position = Vector2(-3, -12)
 
-[node name="platform_black16" parent="." unique_id=1803237117 instance=ExtResource("14_mg484")]
-position = Vector2(1312, -211)
-rotation = 1.5707964
-script = null
-
-[node name="DragonProjectileBlack" parent="platform_black16" unique_id=696921531 instance=ExtResource("8_mg484")]
-position = Vector2(3, -12)
-rotation = -1.5707964
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platform_black16" unique_id=620565400]
-libraries/ = SubResource("AnimationLibrary_fnnx1")
-autoplay = &"move"
-
 [node name="platform_black17" parent="." unique_id=2061100709 instance=ExtResource("14_mg484")]
 position = Vector2(1562.245, -455)
 script = null
@@ -2801,9 +2752,17 @@ linked_lever = NodePath("../Lever")
 position = Vector2(571, -930)
 linked_lever = NodePath("../Lever")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform_black3" unique_id=1677603429]
+libraries/ = SubResource("AnimationLibrary_xftyi")
+autoplay = &"move"
+
 [node name="platform_black4" parent="." unique_id=720160570 node_paths=PackedStringArray("linked_lever") instance=ExtResource("14_mg484")]
 position = Vector2(706, -930)
 linked_lever = NodePath("../Lever")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform_black4" unique_id=1816973860]
+libraries/ = SubResource("AnimationLibrary_b8woo")
+autoplay = &"move"
 
 [node name="platform_black5" parent="." unique_id=325647745 node_paths=PackedStringArray("linked_lever") instance=ExtResource("14_mg484")]
 position = Vector2(392, -977)
@@ -2812,9 +2771,5 @@ linked_lever = NodePath("../Lever")
 [node name="platform_black6" parent="." unique_id=417088691 node_paths=PackedStringArray("linked_lever") instance=ExtResource("14_mg484")]
 position = Vector2(871, -981)
 linked_lever = NodePath("../Lever")
-
-[node name="CrownPlinth" parent="." unique_id=981679901 instance=ExtResource("24_m1tv4")]
-z_index = 3
-position = Vector2(1361, -1047)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
