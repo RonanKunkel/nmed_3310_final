@@ -3,7 +3,6 @@ extends Area2D
 @export var speed = 75
 var direction = Vector2.UP
 @onready var light = $PointLight2D
-
 func _physics_process(delta):
 	# Move the projectile in the assigned direction
 	position += direction * speed * delta

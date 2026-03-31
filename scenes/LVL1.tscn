@@ -2026,6 +2026,8 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_lbhrr")
 texture_scale = 0.39
 script = ExtResource("4_hs3uw")
+energyMin = 1.25
+energyMax = 1.75
 colorLow = Color(1, 0.6745098, 0.101960786, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1414454004]

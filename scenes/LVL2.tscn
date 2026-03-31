@@ -1975,7 +1975,7 @@ z_index = 2
 color = Color(3.2488256e-07, 0.21401143, 0.2524221, 0.99215686)
 
 [node name="player" parent="." unique_id=632898850 instance=ExtResource("5_728li")]
-position = Vector2(49, -881)
+position = Vector2(50, -1051)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1839318353]
 position = Vector2(0, -6)
@@ -1992,6 +1992,8 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_bhhal")
 texture_scale = 0.39
 script = ExtResource("6_t2o6n")
+energyMin = 1.25
+energyMax = 1.75
 colorLow = Color(1, 0.6745098, 0.101960786, 1)
 
 [node name="Lever1" parent="." unique_id=321454910 instance=ExtResource("8_0lnhp")]
