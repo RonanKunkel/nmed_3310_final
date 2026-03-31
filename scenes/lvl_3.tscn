@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://scenes/crown.gd" id="20_ffys1"]
 [ext_resource type="PackedScene" uid="uid://cddbjrlheod1y" path="res://scenes/spikes_type_shi3.tscn" id="23_mg484"]
 [ext_resource type="PackedScene" uid="uid://vjsdkp4j6m8a" path="res://scenes/MushroomProjectileBlack.tscn" id="24_27c8d"]
+[ext_resource type="PackedScene" uid="uid://epkpjx4nmts8" path="res://scenes/platform.tscn" id="24_m1tv4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27c8d"]
 resource_name = "Ice_Stone"
@@ -2269,44 +2270,6 @@ _data = {
 &"move": SubResource("Animation_86xq1")
 }
 
-[sub_resource type="Animation" id="Animation_s0p5c"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1312, -211)]
-}
-
-[sub_resource type="Animation" id="Animation_7om64"]
-resource_name = "move"
-length = 8.033334
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 8.033334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1312, -211), Vector2(1312, -912)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fnnx1"]
-_data = {
-&"RESET": SubResource("Animation_s0p5c"),
-&"move": SubResource("Animation_7om64")
-}
-
 [sub_resource type="Animation" id="Animation_fnnx1"]
 length = 0.001
 tracks/0/type = "value"
@@ -2503,6 +2466,120 @@ _data = {
 &"move": SubResource("Animation_fk0w4")
 }
 
+[sub_resource type="Animation" id="Animation_s0p5c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1714, -344)]
+}
+
+[sub_resource type="Animation" id="Animation_7om64"]
+resource_name = "move"
+length = 2.0333333
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1714, -344), Vector2(1714, -437.055)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fnnx1"]
+_data = {
+&"RESET": SubResource("Animation_s0p5c"),
+&"move": SubResource("Animation_7om64")
+}
+
+[sub_resource type="Animation" id="Animation_xftyi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1680, -639)]
+}
+
+[sub_resource type="Animation" id="Animation_4qv70"]
+resource_name = "move"
+length = 3.0333333
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1680, -639), Vector2(1680, -835.185)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7kqa1"]
+_data = {
+&"RESET": SubResource("Animation_xftyi"),
+&"move": SubResource("Animation_4qv70")
+}
+
+[sub_resource type="Animation" id="Animation_7kqa1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1717, -806)]
+}
+
+[sub_resource type="Animation" id="Animation_m3eo5"]
+resource_name = "move"
+length = 3.0333333
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1717, -806), Vector2(1717, -664.465)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ol75"]
+_data = {
+&"RESET": SubResource("Animation_7kqa1"),
+&"move": SubResource("Animation_m3eo5")
+}
+
 [node name="Lvl3" type="Node2D" unique_id=969930667]
 
 [node name="DevMenu" parent="." unique_id=2081920975 instance=ExtResource("1_dj1r7")]
@@ -2530,7 +2607,7 @@ position = Vector2(19, -174)
 shape = SubResource("WorldBoundaryShape2D_dj1r7")
 
 [node name="player" parent="." unique_id=632898850 instance=ExtResource("5_3ttfa")]
-position = Vector2(643, -1247)
+position = Vector2(1407, -900)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1233642076]
 position = Vector2(0, -6)
@@ -2765,19 +2842,6 @@ autoplay = &"move"
 [node name="dragon" parent="platform_black15" unique_id=775449533 instance=ExtResource("19_vbsd7")]
 position = Vector2(-3, -12)
 
-[node name="platform_black16" parent="." unique_id=1803237117 instance=ExtResource("14_mg484")]
-position = Vector2(1312, -211)
-rotation = 1.5707964
-script = null
-
-[node name="DragonProjectileBlack" parent="platform_black16" unique_id=696921531 instance=ExtResource("8_mg484")]
-position = Vector2(3, -12)
-rotation = -1.5707964
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platform_black16" unique_id=620565400]
-libraries/ = SubResource("AnimationLibrary_fnnx1")
-autoplay = &"move"
-
 [node name="platform_black17" parent="." unique_id=2061100709 instance=ExtResource("14_mg484")]
 position = Vector2(1562.245, -455)
 script = null
@@ -2907,5 +2971,62 @@ linked_lever = NodePath("../Lever")
 [node name="platform_black6" parent="." unique_id=417088691 node_paths=PackedStringArray("linked_lever") instance=ExtResource("14_mg484")]
 position = Vector2(871, -981)
 linked_lever = NodePath("../Lever")
+
+[node name="MushroomProjectileBlack3" parent="." unique_id=8786738 instance=ExtResource("24_27c8d")]
+position = Vector2(1661, -604)
+
+[node name="MushroomProjectileBlack4" parent="." unique_id=505523742 instance=ExtResource("24_27c8d")]
+position = Vector2(1710, -940)
+
+[node name="CharacterBody2D" parent="." unique_id=512681709 instance=ExtResource("24_m1tv4")]
+position = Vector2(1714, -344)
+rotation = 1.5707964
+script = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D" unique_id=237783762]
+libraries/ = SubResource("AnimationLibrary_fnnx1")
+autoplay = &"move"
+
+[node name="MushroomProjectileBlack5" parent="CharacterBody2D" unique_id=1370079007 instance=ExtResource("24_27c8d")]
+position = Vector2(13, 15.999999)
+rotation = -1.5707964
+
+[node name="MushroomProjectileBlack6" parent="CharacterBody2D" unique_id=182517046 instance=ExtResource("24_27c8d")]
+position = Vector2(-17, 17)
+rotation = -1.5707964
+
+[node name="CharacterBody2D2" parent="." unique_id=1330138673 instance=ExtResource("24_m1tv4")]
+position = Vector2(1680, -639)
+rotation = 1.5707964
+script = null
+
+[node name="MushroomProjectileBlack5" parent="CharacterBody2D2" unique_id=688482071 instance=ExtResource("24_27c8d")]
+position = Vector2(12, 16)
+rotation = -1.5707964
+
+[node name="MushroomProjectileBlack6" parent="CharacterBody2D2" unique_id=406050283 instance=ExtResource("24_27c8d")]
+position = Vector2(-11, 16)
+rotation = -1.5707964
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D2" unique_id=1107272401]
+libraries/ = SubResource("AnimationLibrary_7kqa1")
+autoplay = &"move"
+
+[node name="CharacterBody2D3" parent="." unique_id=700289183 instance=ExtResource("24_m1tv4")]
+position = Vector2(1717, -806)
+rotation = 1.5707964
+script = null
+
+[node name="MushroomProjectileBlack5" parent="CharacterBody2D3" unique_id=998263670 instance=ExtResource("24_27c8d")]
+position = Vector2(14, 16)
+rotation = -1.5707964
+
+[node name="MushroomProjectileBlack6" parent="CharacterBody2D3" unique_id=436073743 instance=ExtResource("24_27c8d")]
+position = Vector2(-9, 16)
+rotation = -1.5707964
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D3" unique_id=631767472]
+libraries/ = SubResource("AnimationLibrary_4ol75")
+autoplay = &"move"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
