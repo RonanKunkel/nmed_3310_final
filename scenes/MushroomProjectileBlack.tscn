@@ -24,6 +24,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D/PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 1.5, 2.0]
+}
 
 [sub_resource type="Animation" id="Animation_dwnmp"]
 length = 0.001
@@ -39,6 +51,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D/PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0brm8"]
 _data = {
@@ -50,6 +74,17 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4jca"]
 radius = 6.0
 height = 26.0
+
+[sub_resource type="Gradient" id="Gradient_5g376"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_36y7x"]
+gradient = SubResource("Gradient_5g376")
+width = 86
+height = 86
+fill = 1
+fill_from = Vector2(0.49530515, 0.5093897)
+fill_to = Vector2(0.8333333, 0.6596244)
 
 [node name="MushroomProjectileBlack" type="Node2D" unique_id=2007491946]
 
@@ -79,5 +114,14 @@ shape = SubResource("CapsuleShape2D_f4jca")
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=130517823]
 wait_time = 5.0
 autostart = true
+
+[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D" unique_id=1140069445]
+position = Vector2(-2.0000014, 0.49999952)
+scale = Vector2(0.83482414, 0.98389995)
+color = Color(0.92156863, 0.92941177, 0.9137255, 1)
+energy = 0.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_36y7x")
+texture_scale = 0.39
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
