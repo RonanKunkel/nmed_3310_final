@@ -6,6 +6,7 @@ var leverActivated = false;
 signal lever_toggled(state)
 
 @onready var anim = $AnimationPlayer
+@onready var sfx_lever: AudioStreamPlayer2D = $sfx_lever
 
 func _ready() -> void:
 	connect("body_entered", _on_body_entered)
@@ -17,6 +18,8 @@ func _process(_delta: float) -> void:
 		
 func toggle_lever() -> void:
 	leverActivated = !leverActivated
+	
+	sfx_lever.play()
 	
 	if leverActivated:
 		anim.play("Toggle")

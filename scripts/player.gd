@@ -6,7 +6,40 @@ extends CharacterBody2D
 @onready var death_timer = $DeathTimer
 @onready var collision = $CollisionShape2D
 @onready var dev_label = $"../DevMenu/DevLabel"
-@onready var tilemap: TileMap = $"../TileMap"  
+@onready var tilemap: TileMap = $"../TileMap"
+@onready var sfx_jump: AudioStreamPlayer = $sfx_jump
+@onready var sfx_death_scream: AudioStreamPlayer = $sfx_death_scream
+@onready var sfx_death_music: AudioStreamPlayer = $sfx_death_music
+@onready var sfx_run: AudioStreamPlayer = $sfx_run
+@onready var step_timer: Timer = $step_timer
+
+
+
+var grass_sounds = [
+	preload("res://assets/sounds/grass1.wav"),
+	preload("res://assets/sounds/grass2.wav"),
+	preload("res://assets/sounds/grass3.wav"),
+	preload("res://assets/sounds/grass4.wav"),
+	preload("res://assets/sounds/grass5.wav")
+]
+
+var stone_sounds = [
+	preload("res://assets/sounds/stone1.wav"),
+	preload("res://assets/sounds/stone2.wav"),
+	preload("res://assets/sounds/stone3.wav"),
+	preload("res://assets/sounds/stone4.wav"),
+	preload("res://assets/sounds/stone5.wav")
+]
+
+var ice_sounds = [
+	preload("res://assets/sounds/ice1.wav"),
+	preload("res://assets/sounds/ice2.wav"),
+	preload("res://assets/sounds/ice3.wav"),
+	preload("res://assets/sounds/ice4.wav"),
+	preload("res://assets/sounds/ice5.wav")
+]
+
+
 var has_key: bool = false
 var is_dead = false
 var has_crown: bool = false
@@ -32,6 +65,8 @@ var last_checkpoint = Vector2.ZERO
 var current_acceleration = ACCELERATION
 var current_friction = FRICTION
 var on_ice = false
+var on_grass = false
+var on_stone = false
 var jumped_from_ice = false
 var was_on_floor = false
 const LIGHT_SHIFT = 20.0
@@ -161,6 +196,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("jump") and is_on_floor():
 		jumped_from_ice = on_ice
 		velocity.y = JUMP_VELOCITY
+		sfx_jump.play()
 
 	if Input.is_action_just_released("jump"):
 		if velocity.y < MIN_JUMP_CUT:
@@ -188,6 +224,17 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0.0, air_friction * delta)
 	was_on_floor = is_on_floor()
 	move_and_slide()
+	
+	var is_moving = abs(velocity.x) > 1
+	var grounded = is_on_floor()
+
+	if grounded and is_moving:
+		if step_timer.is_stopped():
+			step_timer.start()
+			_on_step_timer_timeout()
+	else:
+		if not step_timer.is_stopped():
+			step_timer.stop()
 
 	# Check if player is standing still on the floor
 	var standing_still: bool = is_on_floor() and abs(velocity.x) < 0.1 and abs(velocity.y) < 0.1
@@ -226,16 +273,34 @@ func _physics_process(delta: float) -> void:
 		anim.flip_h = false
 
 func check_tile_under_player():
+	on_ice = false
+	on_grass = false
+	on_stone = false
+	
 	var feet_pos = global_position + Vector2(0, 16)
 	var tile_pos = tilemap.local_to_map(tilemap.to_local(feet_pos))
 	var tile_data = tilemap.get_cell_tile_data(0, tile_pos)
 	
-	if tile_data and tile_data.get_custom_data("tile_type") == 3:
+	if tile_data and tile_data.get_custom_data("tile_type") == 1:
+		on_ice = false
+		on_grass = false
+		on_stone = true
+		current_acceleration = ACCELERATION
+		current_friction = FRICTION
+	elif tile_data and tile_data.get_custom_data("tile_type") == 2:
+		on_ice = false
+		on_grass = true
+		on_stone = false
+		current_acceleration = ACCELERATION
+		current_friction = FRICTION
+	elif tile_data and tile_data.get_custom_data("tile_type") == 3:
 		on_ice = true
+		on_grass = false
+		on_stone = false
 		current_acceleration = ICE_ACCELERATION
 		current_friction = ICE_FRICTION
 	else:
-		on_ice = false
+		on_stone = true
 		current_acceleration = ACCELERATION
 		current_friction = FRICTION
 		
@@ -310,6 +375,8 @@ func die() -> void:
 
 	is_dead = true
 	velocity.x = 0.0
+	sfx_death_scream.play()
+	sfx_death_music.play()
 	play_player_anim("Death")
 	death_timer.start()
 
@@ -325,3 +392,24 @@ func respawn_player() -> void:
 	play_player_anim("Idle")
 	get_tree().call_group("projectiles", "queue_free")
 	get_tree().call_group("lever", "reset")
+	
+func play_footstep():
+	var sound
+	
+	if on_grass:
+		sound = grass_sounds.pick_random()
+		sfx_run.volume_db = 0
+	elif on_stone:
+		sound = stone_sounds.pick_random()
+		sfx_run.volume_db = 5
+	else:
+		sound = ice_sounds.pick_random()
+		sfx_run.volume_db = -5
+
+	sfx_run.stream = sound
+	sfx_run.pitch_scale = randf_range(0.9, 1.1)
+	sfx_run.play()
+
+
+func _on_step_timer_timeout() -> void:
+	play_footstep()
