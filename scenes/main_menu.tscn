@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://jmrdywdih8oa"]
 
 [ext_resource type="PackedScene" uid="uid://d3vlnxu7pkymd" path="res://scenes/LVL1background.tscn" id="1_bqqt6"]
-[ext_resource type="Script" path="res://scenes/main_menucanvas.gd" id="3_bqqt6"]
-[ext_resource type="Script" path="res://scenes/mainmenuplayer.gd" id="3_wu84c"]
+[ext_resource type="Script" uid="uid://beqcvfh5kgdgw" path="res://scenes/main_menucanvas.gd" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://nwtt7sebkr4q" path="res://scenes/mainmenuplayer.gd" id="3_wu84c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ekxnf"]
 radius = 11.0
@@ -46,19 +46,23 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Play"
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1861120254]
-layout_mode = 2
-text = "Quit"
-
 [node name="LevelSelectorButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1249128006]
 layout_mode = 2
 text = "Level Selector"
+
+[node name="CreditsButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1344903712]
+layout_mode = 2
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1861120254]
+layout_mode = 2
+text = "Quit"
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=37534362]
 offset_left = 480.0
 offset_top = 227.0
 offset_right = 640.0
-offset_bottom = 359.0
+offset_bottom = 360.0
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Panel" unique_id=1829130006]
 layout_mode = 0
@@ -110,7 +114,7 @@ text = "Controls:"
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LevelSelector" unique_id=1701271167]
 layout_mode = 0
 offset_right = 640.0
-offset_bottom = 362.0
+offset_bottom = 360.0
 
 [node name="Label" type="Label" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=1252926129]
 layout_mode = 2
@@ -131,4 +135,32 @@ text = "Level 3"
 
 [node name="BackButton" type="Button" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=1616425504]
 layout_mode = 2
+text = "Back"
+
+[node name="Credits" type="Panel" parent="CanvasLayer" unique_id=771987876]
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits" unique_id=489299274]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+text = "
+
+
+Thank you so much for playing our game.
+
+Ronan
+
+Maksym
+
+Andriy"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Credits" unique_id=85345359]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 278.0
+offset_right = 352.0
+offset_bottom = 323.0
 text = "Back"
