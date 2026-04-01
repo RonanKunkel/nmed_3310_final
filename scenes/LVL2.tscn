@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cp0sr7nu75eea" path="res://scenes/platform_ice.tscn" id="14_51lav"]
 [ext_resource type="PackedScene" uid="uid://ctg0blvoa5gkf" path="res://scenes/DevMenu.tscn" id="14_ptkaj"]
 [ext_resource type="PackedScene" uid="uid://dbqndwk5274fm" path="res://scenes/endlevel2.tscn" id="15_51lav"]
+[ext_resource type="PackedScene" uid="uid://e68140cr7dni" path="res://scenes/checkpoint.tscn" id="16_frj82"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptkaj"]
 resource_name = "Ice_Stone"
@@ -2303,3 +2304,12 @@ libraries/ = SubResource("AnimationLibrary_gdeff")
 
 [node name="Area2D" parent="." unique_id=1105578825 instance=ExtResource("15_51lav")]
 position = Vector2(4117, 1224)
+
+[node name="checkpoint" parent="." unique_id=1438819986 instance=ExtResource("16_frj82")]
+position = Vector2(48, -895)
+
+[node name="checkpoint2" parent="." unique_id=602380182 instance=ExtResource("16_frj82")]
+position = Vector2(1336, -833)
+
+[node name="checkpoint3" parent="." unique_id=1501734773 instance=ExtResource("16_frj82")]
+position = Vector2(2422, -470)

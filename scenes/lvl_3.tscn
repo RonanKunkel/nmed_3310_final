@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cddbjrlheod1y" path="res://scenes/spikes_type_shi3.tscn" id="23_mg484"]
 [ext_resource type="PackedScene" uid="uid://vjsdkp4j6m8a" path="res://scenes/MushroomProjectileBlack.tscn" id="24_27c8d"]
 [ext_resource type="PackedScene" uid="uid://epkpjx4nmts8" path="res://scenes/platform.tscn" id="24_m1tv4"]
+[ext_resource type="PackedScene" uid="uid://e68140cr7dni" path="res://scenes/checkpoint.tscn" id="25_m1tv4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27c8d"]
 resource_name = "Ice_Stone"
@@ -2607,7 +2608,7 @@ position = Vector2(19, -174)
 shape = SubResource("WorldBoundaryShape2D_dj1r7")
 
 [node name="player" parent="." unique_id=632898850 instance=ExtResource("5_3ttfa")]
-position = Vector2(1407, -900)
+position = Vector2(626, -1014)
 
 [node name="Camera2D" type="Camera2D" parent="player" unique_id=1233642076]
 position = Vector2(0, -6)
@@ -2840,6 +2841,8 @@ libraries/ = SubResource("AnimationLibrary_s0p5c")
 autoplay = &"move"
 
 [node name="dragon" parent="platform_black15" unique_id=775449533 instance=ExtResource("19_vbsd7")]
+light_mask = 5
+visibility_layer = 5
 position = Vector2(-3, -12)
 
 [node name="platform_black17" parent="." unique_id=2061100709 instance=ExtResource("14_mg484")]
@@ -3028,5 +3031,17 @@ rotation = -1.5707964
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D3" unique_id=631767472]
 libraries/ = SubResource("AnimationLibrary_4ol75")
 autoplay = &"move"
+
+[node name="checkpoint" parent="." unique_id=1438819986 instance=ExtResource("25_m1tv4")]
+position = Vector2(661, -770)
+
+[node name="checkpoint2" parent="." unique_id=801309331 instance=ExtResource("25_m1tv4")]
+position = Vector2(253, -452)
+
+[node name="checkpoint3" parent="." unique_id=957283513 instance=ExtResource("25_m1tv4")]
+position = Vector2(1012, -455)
+
+[node name="checkpoint4" parent="." unique_id=520448429 instance=ExtResource("25_m1tv4")]
+position = Vector2(1302, -169)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

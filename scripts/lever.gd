@@ -25,6 +25,13 @@ func toggle_lever() -> void:
 	
 	emit_signal("lever_toggled", leverActivated)
 	
+func reset() -> void:
+	if leverActivated:
+		leverActivated = false
+		anim.play_backwards("Toggle")
+		emit_signal("lever_toggled", false) 
+
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "player":
 		playerInRange = true

@@ -45,7 +45,7 @@ _data = {
 &"Toggle": SubResource("Animation_4kwec")
 }
 
-[node name="Lever" type="Area2D" unique_id=321454910]
+[node name="Lever" type="Area2D" unique_id=321454910 groups=["lever"]]
 script = ExtResource("1_0ohsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=798476848]

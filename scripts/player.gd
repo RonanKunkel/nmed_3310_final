@@ -26,6 +26,8 @@ const ICE_SPEED = 180
 const ICE_AIR_FRICTION = 2.0
 const MIN_JUMP_CUT = -75.0
 
+var last_checkpoint = Vector2.ZERO
+
 var current_acceleration = ACCELERATION
 var current_friction = FRICTION
 var on_ice = false
@@ -47,6 +49,7 @@ var target_camera_y := 0.0
 
 func _ready() -> void:
 	start_position = global_position
+	last_checkpoint = global_position
 	candle_start_pos = candle.position
 	camera_start_offset = camera.offset
 	
@@ -71,6 +74,11 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("dev_noclip"):
 		if dev_mode_enabled:
 			set_noclip(!noclip)
+
+
+
+
+
 
 func set_dev_mode_enabled(value: bool) -> void:
 	dev_mode_enabled = value
@@ -299,8 +307,13 @@ func die() -> void:
 
 
 func _on_death_timer_timeout() -> void:
-	get_tree().reload_current_scene()
+		respawn_player()
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+func respawn_player() -> void:
+	global_position = last_checkpoint
+	is_dead = false
+	velocity = Vector2.ZERO
+	anim.play("Idle")
+	get_tree().call_group("projectiles", "queue_free")
+	get_tree().call_group("lever", "reset")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://oub6ov1ww2ga"]
 
-[ext_resource type="Script" uid="uid://c1hwggn6htw0j" path="res://scenes/projectile_dragon_ice.gd" id="1_m2axh"]
+[ext_resource type="Script" path="res://scenes/projectile_dragon_ice.gd" id="1_m2axh"]
 [ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="2_hekwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ce1sn"]
@@ -16,7 +16,7 @@ fill = 1
 fill_from = Vector2(0.52136755, 0.4974359)
 fill_to = Vector2(0.5, 0)
 
-[node name="projectile_dragon_ice" type="Area2D" unique_id=1260495936]
+[node name="projectile_dragon_ice" type="Area2D" unique_id=1260495936 groups=["projectiles"]]
 script = ExtResource("1_m2axh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=855958674]
