@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bwnjcuoirdwau"]
 
 [ext_resource type="Script" uid="uid://fh68tuc68x17" path="res://scripts/lever.gd" id="1_0ohsc"]
+[ext_resource type="AudioStream" uid="uid://dyyudhrwi8fg2" path="res://assets/sounds/lever.mp3" id="2_ncfea"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4kwec"]
 load_path = "res://.godot/imported/lever.png-89c1d49f95bf865022505ee302d49ba8.ctex"
@@ -60,3 +61,7 @@ shape = SubResource("RectangleShape2D_4kwec")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=535089492]
 libraries/ = SubResource("AnimationLibrary_ncfea")
+
+[node name="sfx_lever" type="AudioStreamPlayer2D" parent="." unique_id=1766663643]
+stream = ExtResource("2_ncfea")
+volume_db = 7.298

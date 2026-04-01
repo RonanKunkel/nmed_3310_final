@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtib77caj147j" path="res://scenes/DragonProjectileBlack.gd" id="1_tkbhg"]
 [ext_resource type="Texture2D" uid="uid://htoaslsvag7f" path="res://assets/sprites/Dragon_fireball.png" id="2_iikdp"]
+[ext_resource type="AudioStream" uid="uid://dyt377tojwi7w" path="res://assets/sounds/dragon.mp3" id="3_iikdp"]
 
 [sub_resource type="Animation" id="Animation_niqsm"]
 resource_name = "Dragon_Fire"
@@ -71,5 +72,9 @@ shape = SubResource("RectangleShape2D_wh4t5")
 [node name="Timer" type="Timer" parent="CharacterBody2D" unique_id=885675473]
 wait_time = 3.0
 autostart = true
+
+[node name="sfx_dragon" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=1865113667]
+stream = ExtResource("3_iikdp")
+max_distance = 500.0
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

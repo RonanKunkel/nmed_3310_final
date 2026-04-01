@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var ShootTimer = $Timer
+@onready var sfx_mushroom: AudioStreamPlayer2D = $sfx_mushroom
 # Preload the bullet scene
 var projectile_scene = preload("res://scenes/projectile_mushroom_black.tscn")
 func _ready():
@@ -19,6 +20,8 @@ func shoot(_target_position: Vector2):
 	# 3. Calculate direction towards target (e.g., the player)
 	#var dir = (target_position - $Muzzle.global_position).normalized()
 	#projectile.direction = dir
+	
+	sfx_mushroom.play()
 	
 	# 4. Add the bullet to the main scene, NOT as a child of the mob
 	get_tree().root.add_child(projectile_mushroom_black)

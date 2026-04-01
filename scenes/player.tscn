@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://rq1sw5se0i57" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://cklh63bld46e6" path="res://assets/sprites/Dwarf.png" id="2_g2els"]
+[ext_resource type="AudioStream" uid="uid://wa0inqms10tu" path="res://assets/sounds/dwarfJump.wav" id="3_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://c86nlxvb7idsw" path="res://assets/sounds/deathScream.mp3" id="4_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://ce6bcworo0ysi" path="res://assets/sounds/deathMusic.mp3" id="5_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("2_g2els")
@@ -193,4 +196,21 @@ shape = SubResource("CircleShape2D_fjrip")
 wait_time = 2.0
 one_shot = true
 
+[node name="sfx_jump" type="AudioStreamPlayer" parent="." unique_id=614527965]
+stream = ExtResource("3_qlg0r")
+volume_db = 10.035
+
+[node name="sfx_death_scream" type="AudioStreamPlayer" parent="." unique_id=1214272622]
+stream = ExtResource("4_tuyoq")
+
+[node name="sfx_death_music" type="AudioStreamPlayer" parent="." unique_id=1900610838]
+stream = ExtResource("5_fjrip")
+
+[node name="sfx_run" type="AudioStreamPlayer" parent="." unique_id=1794512704]
+
+[node name="step_timer" type="Timer" parent="." unique_id=595502644]
+wait_time = 0.4
+
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="step_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="step_timer" to="." method="_on_step_timer_timeout"]

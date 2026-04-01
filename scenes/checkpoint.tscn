@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://e68140cr7dni"]
 
 [ext_resource type="Script" uid="uid://xsh3huq4utan" path="res://scripts/checkpoint.gd" id="1_yyywg"]
+[ext_resource type="AudioStream" uid="uid://h4j0xr7umy0t" path="res://assets/sounds/checkpoint.wav" id="2_ywqth"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xam77"]
 size = Vector2(54, 46)
@@ -16,5 +17,8 @@ script = ExtResource("1_yyywg")
 shape = SubResource("RectangleShape2D_xam77")
 
 [node name="SpawnPoint" type="Marker2D" parent="Area2D" unique_id=1295127944]
+
+[node name="sfx_checkpoint" type="AudioStreamPlayer" parent="Area2D" unique_id=496054503]
+stream = ExtResource("2_ywqth")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

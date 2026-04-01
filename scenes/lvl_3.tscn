@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://h12u6v6tc81r" path="res://scripts/point_light_2d.gd" id="6_qwpll"]
 [ext_resource type="PackedScene" uid="uid://q61sx3n2531s" path="res://scenes/DragonProjectileBlack.tscn" id="8_mg484"]
 [ext_resource type="PackedScene" uid="uid://s3x5m23nr7v" path="res://scenes/KeyDoor3.tscn" id="10_27c8d"]
-[ext_resource type="Script" path="res://scenes/gates.gd" id="10_svbv1"]
+[ext_resource type="Script" uid="uid://dxfamuerdb4fi" path="res://scenes/gates.gd" id="10_svbv1"]
 [ext_resource type="PackedScene" uid="uid://bwnjcuoirdwau" path="res://scenes/lever.tscn" id="10_yxb5l"]
 [ext_resource type="PackedScene" uid="uid://4ccr8wh0xc15" path="res://scenes/LVL3background.tscn" id="11_gegca"]
 [ext_resource type="PackedScene" uid="uid://bwpssnl7bi014" path="res://scenes/Ice_Platforms_timed.tscn" id="12_7nyt0"]
@@ -23,9 +23,10 @@
 [ext_resource type="Script" uid="uid://bf81xxdpomcyv" path="res://scenes/crown.gd" id="20_ffys1"]
 [ext_resource type="PackedScene" uid="uid://cddbjrlheod1y" path="res://scenes/spikes_type_shi3.tscn" id="23_mg484"]
 [ext_resource type="PackedScene" uid="uid://vjsdkp4j6m8a" path="res://scenes/MushroomProjectileBlack.tscn" id="24_27c8d"]
-[ext_resource type="PackedScene" path="res://scenes/CrownPlinth.tscn" id="24_m1tv4"]
-[ext_resource type="PackedScene" uid="uid://c8mc7b4mglw2t" path="res://scenes/endlevel3.tscn" id="26_mifa2"]
+[ext_resource type="PackedScene" uid="uid://cnleb7dtpu8f8" path="res://scenes/CrownPlinth.tscn" id="24_m1tv4"]
+[ext_resource type="PackedScene" uid="uid://boqy84qyx0f70" path="res://scenes/endlevel3.tscn" id="26_mifa2"]
 [ext_resource type="PackedScene" uid="uid://e68140cr7dni" path="res://scenes/checkpoint.tscn" id="26_svbv1"]
+[ext_resource type="AudioStream" uid="uid://dmq5e8utylgov" path="res://assets/music/lvl3_music.mp3" id="27_mifa2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27c8d"]
 resource_name = "Ice_Stone"
@@ -3160,5 +3161,10 @@ position = Vector2(1268, -151)
 
 [node name="Area2D3" parent="." unique_id=1105578825 instance=ExtResource("26_mifa2")]
 position = Vector2(1789, -1275)
+
+[node name="sfx_lvl3" type="AudioStreamPlayer" parent="." unique_id=1564640753]
+stream = ExtResource("27_mifa2")
+volume_db = -5.474
+autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

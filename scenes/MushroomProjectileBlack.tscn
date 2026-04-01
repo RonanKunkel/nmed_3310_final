@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://u0nevxm6delb" path="res://scenes/MushroomProjectileBlack.gd" id="1_36y7x"]
 [ext_resource type="Texture2D" uid="uid://c3g6ydf02gm0c" path="res://assets/sprites/mushroom_shot.png" id="1_l3m3u"]
+[ext_resource type="AudioStream" uid="uid://tbgqt5n0c81h" path="res://assets/sounds/mushroom.mp3" id="3_0brm8"]
 
 [sub_resource type="Animation" id="Animation_niqsm"]
 resource_name = "Dragon_Fire"
@@ -123,5 +124,9 @@ energy = 0.0
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_36y7x")
 texture_scale = 0.39
+
+[node name="sfx_mushroom" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=1721028546]
+stream = ExtResource("3_0brm8")
+max_distance = 500.0
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
