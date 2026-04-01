@@ -3,9 +3,37 @@
 [ext_resource type="PackedScene" uid="uid://d3vlnxu7pkymd" path="res://scenes/LVL1background.tscn" id="1_bqqt6"]
 [ext_resource type="Script" uid="uid://beqcvfh5kgdgw" path="res://scenes/main_menucanvas.gd" id="3_bqqt6"]
 [ext_resource type="Script" uid="uid://nwtt7sebkr4q" path="res://scenes/mainmenuplayer.gd" id="3_wu84c"]
+[ext_resource type="Texture2D" uid="uid://bwjxrc3x3bcns" path="res://assets/sprites/menu/Menu1.png" id="4_wu84c"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ekxnf"]
 radius = 11.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ln24"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(0, 0, 320, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtw2f"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(960, 0, 320, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa1go"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 0, 320, 32)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
+font_size = 18
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu84c"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(0, 32, 320, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbmy8"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(960, 32, 320, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk1qb"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 32, 320, 32)
 
 [node name="main menu" type="Node2D" unique_id=27402964]
 
@@ -42,23 +70,72 @@ layout_mode = 2
 text = "DWARF"
 horizontal_alignment = 1
 
-[node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=2120099660]
+[node name="PlayButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=2113520038]
 layout_mode = 2
-text = "Play"
+texture_normal = SubResource("AtlasTexture_8ln24")
+texture_pressed = SubResource("AtlasTexture_rtw2f")
+texture_hover = SubResource("AtlasTexture_oa1go")
+stretch_mode = 3
 
-[node name="LevelSelectorButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1249128006]
-layout_mode = 2
-text = "Level Selector"
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/PlayButton" unique_id=608363706]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Start Game"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="CreditsButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1344903712]
+[node name="LevelSelectorButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=607543440]
 layout_mode = 2
-text = "Credits"
+texture_normal = SubResource("AtlasTexture_wu84c")
+texture_pressed = SubResource("AtlasTexture_tbmy8")
+texture_hover = SubResource("AtlasTexture_jk1qb")
+stretch_mode = 3
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1861120254]
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/LevelSelectorButton" unique_id=1155306988]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Level Select"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=1664598426]
 layout_mode = 2
-text = "Quit"
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/CreditsButton" unique_id=1955531548]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Start Game"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=1376423863]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/QuitButton" unique_id=614368596]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Start Game"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=37534362]
+visible = false
 offset_left = 480.0
 offset_top = 227.0
 offset_right = 640.0
@@ -110,6 +187,7 @@ offset_bottom = 23.0
 text = "Controls:"
 
 [node name="LevelSelector" type="Panel" parent="CanvasLayer" unique_id=835146347]
+visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LevelSelector" unique_id=1701271167]
 layout_mode = 0
@@ -121,23 +199,64 @@ layout_mode = 2
 text = "Select level"
 horizontal_alignment = 1
 
-[node name="Level1" type="Button" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=1721704396]
+[node name="Level1" type="TextureButton" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=1281688859]
 layout_mode = 2
-text = "Level 1"
 
-[node name="Level2" type="Button" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=259280825]
-layout_mode = 2
-text = "Level 2"
+[node name="Label" type="Label" parent="CanvasLayer/LevelSelector/VBoxContainer/Level1" unique_id=1732333849]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Start Game"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Level3" type="Button" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=259946938]
+[node name="Level2" type="TextureButton" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=1140809808]
 layout_mode = 2
-text = "Level 3"
 
-[node name="BackButton" type="Button" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=1616425504]
+[node name="Label" type="Label" parent="CanvasLayer/LevelSelector/VBoxContainer/Level2" unique_id=1086099616]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Start Game"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level3" type="TextureButton" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=725986248]
 layout_mode = 2
-text = "Back"
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelSelector/VBoxContainer/Level3" unique_id=1326182495]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Start Game"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=1075045945]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/LevelSelector/VBoxContainer/BackButton" unique_id=167242507]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Start Game"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Credits" type="Panel" parent="CanvasLayer" unique_id=771987876]
+visible = false
 offset_right = 640.0
 offset_bottom = 360.0
 
@@ -157,10 +276,20 @@ Maksym
 Andriy"
 horizontal_alignment = 1
 
-[node name="BackButton" type="Button" parent="CanvasLayer/Credits" unique_id=85345359]
+[node name="BackButton" type="TextureButton" parent="CanvasLayer/Credits" unique_id=1140386282]
 layout_mode = 0
 offset_left = 290.0
 offset_top = 278.0
 offset_right = 352.0
 offset_bottom = 323.0
-text = "Back"
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/BackButton" unique_id=2121035761]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Start Game"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
