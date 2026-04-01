@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = $"../TileMap"  
 var has_key: bool = false
 var is_dead = false
+var has_crown: bool = false
 
 # DEV MODE
 var dev_mode_enabled := false
@@ -77,7 +78,14 @@ func _input(event: InputEvent) -> void:
 
 
 
+func equip_crown() -> void:
+	has_crown = true
 
+func play_player_anim(base_name: String) -> void:
+	if has_crown and anim.sprite_frames.has_animation(base_name + "_Crown"):
+		anim.play(base_name + "_Crown")
+	else:
+		anim.play(base_name)
 
 
 func set_dev_mode_enabled(value: bool) -> void:
@@ -207,9 +215,9 @@ func _physics_process(delta: float) -> void:
 
 	# Animation
 	if standing_still:
-		anim.play("Idle")
+		play_player_anim("Idle")
 	else:
-		anim.play("Walk")
+		play_player_anim("Walk")
 
 	# Flip sprite
 	if velocity.x < 0.0:
@@ -251,9 +259,9 @@ func handle_flight(_delta: float) -> void:
 		anim.flip_h = false
 
 	if move_input == Vector2.ZERO:
-		anim.play("Idle")
+		play_player_anim("Idle")
 	else:
-		anim.play("Walk")
+		play_player_anim("Walk")
 
 
 func handle_noclip(delta: float) -> void:
@@ -274,9 +282,9 @@ func handle_noclip(delta: float) -> void:
 		anim.flip_h = false
 
 	if move_input == Vector2.ZERO:
-		anim.play("Idle")
+		play_player_anim("Idle")
 	else:
-		anim.play("Walk")
+		play_player_anim("Walk")
 
 func update_dev_label() -> void:
 	if not dev_mode_enabled:
@@ -302,7 +310,7 @@ func die() -> void:
 
 	is_dead = true
 	velocity.x = 0.0
-	anim.play("Death")
+	play_player_anim("Death")
 	death_timer.start()
 
 
@@ -314,6 +322,6 @@ func respawn_player() -> void:
 	global_position = last_checkpoint
 	is_dead = false
 	velocity = Vector2.ZERO
-	anim.play("Idle")
+	play_player_anim("Idle")
 	get_tree().call_group("projectiles", "queue_free")
 	get_tree().call_group("lever", "reset")
