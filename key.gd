@@ -1,5 +1,8 @@
 extends Area2D
 
+@onready var sfx_key: AudioStreamPlayer = $sfx_key
+
+
 func _ready():
 	body_entered.connect(_on_body_entered)
 	$AnimationPlayer.animation_finished.connect(_on_collect_done)
@@ -8,6 +11,7 @@ func _ready():
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		body.has_key = true
+		sfx_key.play()
 		$AnimationPlayer.play("collect")
 	
 func _on_collect_done(anim_name):
