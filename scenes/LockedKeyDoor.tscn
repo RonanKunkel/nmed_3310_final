@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bkcxqd6e1uyja"]
 
 [ext_resource type="Script" uid="uid://c7aiq6c4gie24" path="res://scenes/locked_key_door.gd" id="1_iv0qn"]
+[ext_resource type="AudioStream" uid="uid://co18hvkylt33w" path="res://assets/sounds/lock.wav" id="2_lw2t6"]
+[ext_resource type="AudioStream" uid="uid://b7nergsacjrmw" path="res://assets/sounds/door.mp3" id="3_mheew"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_okl1l"]
 load_path = "res://.godot/imported/Door_grate.png-9670b1acf5ffc7ef3cf4176c8f59e1cc.ctex"
@@ -73,3 +75,10 @@ shape = SubResource("RectangleShape2D_wc8ta")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1802575739]
 libraries/ = SubResource("AnimationLibrary_mheew")
+
+[node name="sfx_lock" type="AudioStreamPlayer" parent="." unique_id=1771989943]
+stream = ExtResource("2_lw2t6")
+
+[node name="sfx_door" type="AudioStreamPlayer" parent="." unique_id=215195401]
+stream = ExtResource("3_mheew")
+volume_db = 7.5

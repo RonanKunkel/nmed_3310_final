@@ -22,11 +22,12 @@
 [ext_resource type="PackedScene" uid="uid://bm625mb5mnh7t" path="res://scenes/dragonblackup.tscn" id="19_vbsd7"]
 [ext_resource type="Script" uid="uid://bf81xxdpomcyv" path="res://scenes/crown.gd" id="20_ffys1"]
 [ext_resource type="PackedScene" uid="uid://cddbjrlheod1y" path="res://scenes/spikes_type_shi3.tscn" id="23_mg484"]
+[ext_resource type="AudioStream" uid="uid://d2a77g3nesfst" path="res://assets/sounds/crown.mp3" id="23_yqmce"]
 [ext_resource type="PackedScene" uid="uid://vjsdkp4j6m8a" path="res://scenes/MushroomProjectileBlack.tscn" id="24_27c8d"]
 [ext_resource type="PackedScene" uid="uid://cnleb7dtpu8f8" path="res://scenes/CrownPlinth.tscn" id="24_m1tv4"]
 [ext_resource type="PackedScene" uid="uid://boqy84qyx0f70" path="res://scenes/endlevel3.tscn" id="26_mifa2"]
 [ext_resource type="PackedScene" uid="uid://e68140cr7dni" path="res://scenes/checkpoint.tscn" id="26_svbv1"]
-[ext_resource type="AudioStream" uid="uid://dmq5e8utylgov" path="res://assets/music/lvl3_music.mp3" id="27_mifa2"]
+[ext_resource type="AudioStream" uid="uid://ci3ws7fsrg3h2" path="res://assets/music/lvl3_music.mp3" id="27_mifa2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27c8d"]
 resource_name = "Ice_Stone"
@@ -2478,7 +2479,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ol4a5"]
 resource_name = "collect"
-length = 0.13333334
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2486,10 +2487,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.13333334),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.23333335, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(3430, -408.4609), Vector2(3430, -413.461)]
+"values": [Vector2(3430, -408.4609), Vector2(3430, -413.461), Vector2(3430, -381.786)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_twnxe"]
@@ -2980,6 +2981,7 @@ libraries/ = SubResource("AnimationLibrary_ol4a5")
 autoplay = &"up"
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=800288264]
+z_index = -1
 position = Vector2(3430, -408.4609)
 rotation = 3.1415927
 scale = Vector2(1.343584, -0.6530113)
@@ -3008,6 +3010,9 @@ energy = 1.98
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_mg484")
 texture_scale = 0.39
+
+[node name="sfx_crown" type="AudioStreamPlayer" parent="Area2D2" unique_id=667216712]
+stream = ExtResource("23_yqmce")
 
 [node name="DragonProjectileBlack2" parent="." unique_id=226083444 instance=ExtResource("8_mg484")]
 position = Vector2(337, -924)

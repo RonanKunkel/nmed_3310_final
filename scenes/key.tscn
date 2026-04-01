@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dc87o6vuryqnf"]
 
 [ext_resource type="Script" uid="uid://dw0pm4qt58i44" path="res://key.gd" id="1_fttkb"]
+[ext_resource type="AudioStream" uid="uid://c4fiafsgryqr1" path="res://assets/sounds/key.mp3" id="2_fttkb"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yk2u2"]
 load_path = "res://.godot/imported/testKey.png-4dab09b74a957ec79171dbf67ba29b1a.ctex"
@@ -20,5 +21,9 @@ region_rect = Rect2(33, 4, 14, 8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=741458494]
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_brs3p")
+
+[node name="sfx_key" type="AudioStreamPlayer" parent="." unique_id=1007796226]
+stream = ExtResource("2_fttkb")
+volume_db = 12.335
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
