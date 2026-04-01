@@ -87,6 +87,9 @@ fill = 1
 fill_from = Vector2(0.49530515, 0.5093897)
 fill_to = Vector2(0.8333333, 0.6596244)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0brm8"]
+b = Vector2(0, 17)
+
 [node name="MushroomProjectileBlack" type="Node2D" unique_id=2007491946]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=943957626 groups=["player"]]
@@ -127,6 +130,11 @@ texture_scale = 0.39
 
 [node name="sfx_mushroom" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=1721028546]
 stream = ExtResource("3_0brm8")
+volume_db = -12.0
 max_distance = 500.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1410984514]
+position = Vector2(-9, -5)
+shape = SubResource("SegmentShape2D_0brm8")
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

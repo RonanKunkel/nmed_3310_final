@@ -25,5 +25,6 @@ shape = SubResource("CapsuleShape2D_brs3p")
 [node name="sfx_key" type="AudioStreamPlayer" parent="." unique_id=1007796226]
 stream = ExtResource("2_fttkb")
 volume_db = 12.335
+bus = &"Reverb"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

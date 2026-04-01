@@ -117,6 +117,9 @@ fill = 1
 fill_from = Vector2(0.49530515, 0.5093897)
 fill_to = Vector2(0.8333333, 0.6596244)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_niqsm"]
+b = Vector2(0, 17)
+
 [node name="Node2D" type="Node2D" unique_id=125072654]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=984488463 groups=["player"]]
@@ -138,7 +141,6 @@ libraries/ = SubResource("AnimationLibrary_fdg4b")
 autoplay = &"Mushroom_Shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1789778245]
-visible = false
 position = Vector2(2, -5)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_porr8")
@@ -159,5 +161,9 @@ texture_scale = 0.39
 [node name="sfx_mushroom" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=368360459]
 stream = ExtResource("2_niqsm")
 max_distance = 500.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1460297155]
+position = Vector2(-9, -5)
+shape = SubResource("SegmentShape2D_niqsm")
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]

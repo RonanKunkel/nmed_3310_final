@@ -29,3 +29,4 @@ shape = SubResource("RectangleShape2D_h75h0")
 
 [node name="sfx_door" type="AudioStreamPlayer" parent="." unique_id=543982131]
 stream = ExtResource("3_r4qj4")
+bus = &"Reverb"

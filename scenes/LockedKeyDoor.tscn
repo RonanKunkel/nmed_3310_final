@@ -78,7 +78,9 @@ libraries/ = SubResource("AnimationLibrary_mheew")
 
 [node name="sfx_lock" type="AudioStreamPlayer" parent="." unique_id=1771989943]
 stream = ExtResource("2_lw2t6")
+bus = &"Reverb"
 
 [node name="sfx_door" type="AudioStreamPlayer" parent="." unique_id=215195401]
 stream = ExtResource("3_mheew")
 volume_db = 7.5
+bus = &"Reverb"

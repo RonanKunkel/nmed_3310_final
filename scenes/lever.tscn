@@ -65,3 +65,4 @@ libraries/ = SubResource("AnimationLibrary_ncfea")
 [node name="sfx_lever" type="AudioStreamPlayer2D" parent="." unique_id=1766663643]
 stream = ExtResource("2_ncfea")
 volume_db = 7.298
+bus = &"Reverb"

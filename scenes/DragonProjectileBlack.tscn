@@ -76,5 +76,6 @@ autostart = true
 [node name="sfx_dragon" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=1865113667]
 stream = ExtResource("3_iikdp")
 max_distance = 500.0
+bus = &"Reverb"
 
 [connection signal="timeout" from="CharacterBody2D/Timer" to="CharacterBody2D" method="_on_timer_timeout"]
