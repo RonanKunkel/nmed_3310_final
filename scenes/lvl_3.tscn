@@ -1815,7 +1815,7 @@ fill_from = Vector2(0.49530515, 0.5093897)
 fill_to = Vector2(0.25586855, 0.9929578)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1tv4"]
-size = Vector2(32.25, 62)
+size = Vector2(3.125, 62)
 
 [sub_resource type="Animation" id="Animation_108hs"]
 resource_name = "CloseGate"
@@ -2744,7 +2744,7 @@ position = Vector2(1361, -1047)
 script = ExtResource("10_svbv1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CrownPlinth/gates" unique_id=1887085178]
-position = Vector2(42, -24)
+position = Vector2(20, -23)
 shape = SubResource("RectangleShape2D_m1tv4")
 
 [node name="platform_black22" parent="CrownPlinth/gates" unique_id=810275618 instance=ExtResource("14_mg484")]
