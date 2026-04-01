@@ -398,13 +398,13 @@ func play_footstep():
 	
 	if on_grass:
 		sound = grass_sounds.pick_random()
-		sfx_run.volume_db = 0
+		sfx_run.volume_db = -5
 	elif on_stone:
 		sound = stone_sounds.pick_random()
-		sfx_run.volume_db = 5
+		sfx_run.volume_db = 0
 	else:
 		sound = ice_sounds.pick_random()
-		sfx_run.volume_db = -5
+		sfx_run.volume_db = -10
 
 	sfx_run.stream = sound
 	sfx_run.pitch_scale = randf_range(0.9, 1.1)
