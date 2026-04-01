@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://chp56y0i0a2wj"]
+
+[ext_resource type="PackedScene" uid="uid://d3vlnxu7pkymd" path="res://scenes/LVL1background.tscn" id="1_bqqt6"]
+[ext_resource type="Script" uid="uid://beqcvfh5kgdgw" path="res://scenes/main_menucanvas.gd" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://nwtt7sebkr4q" path="res://scenes/mainmenuplayer.gd" id="3_wu84c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ekxnf"]
+radius = 11.0
+
+[node name="main menu" type="Node2D" unique_id=27402964]
+
+[node name="LVL1background" parent="." unique_id=838031488 instance=ExtResource("1_bqqt6")]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1065132585]
+script = ExtResource("3_wu84c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1782257875]
+shape = SubResource("CircleShape2D_ekxnf")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=946480228]
+position = Vector2(0, -6)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1833183952]
+script = ExtResource("3_bqqt6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1164144428]
+anchors_preset = -1
+anchor_top = -0.20277777
+anchor_right = 0.3328125
+anchor_bottom = 0.11388889
+offset_left = 1.0
+offset_top = 81.0
+offset_right = 426.0
+offset_bottom = 319.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=559699715]
+layout_mode = 2
+text = "DWARF"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=2120099660]
+layout_mode = 2
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1861120254]
+layout_mode = 2
+text = "Quit"
+
+[node name="LevelButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1249128006]
+layout_mode = 2
+text = "Level Selector"
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=37534362]
+offset_left = 480.0
+offset_top = 227.0
+offset_right = 640.0
+offset_bottom = 359.0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Panel" unique_id=1829130006]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 277.0
+offset_bottom = 125.0
+columns = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/GridContainer" unique_id=884742916]
+layout_mode = 2
+text = "Move Left:"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Panel/GridContainer" unique_id=1488638724]
+layout_mode = 2
+text = "A OR ←"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Panel/GridContainer" unique_id=1989689740]
+layout_mode = 2
+text = "Move Right:"
+
+[node name="Label4" type="Label" parent="CanvasLayer/Panel/GridContainer" unique_id=1638310670]
+layout_mode = 2
+text = "D OR →"
+
+[node name="Label5" type="Label" parent="CanvasLayer/Panel/GridContainer" unique_id=655980671]
+layout_mode = 2
+text = "Move UP:"
+
+[node name="Label6" type="Label" parent="CanvasLayer/Panel/GridContainer" unique_id=1646711193]
+layout_mode = 2
+text = "W OR ↑"
+
+[node name="Label7" type="Label" parent="CanvasLayer/Panel/GridContainer" unique_id=1573780886]
+layout_mode = 2
+text = "Interact:"
+
+[node name="Label8" type="Label" parent="CanvasLayer/Panel/GridContainer" unique_id=188327055]
+layout_mode = 2
+text = "E"
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=1470882298]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Controls:"
+
+[node name="Panel2" type="Panel" parent="CanvasLayer" unique_id=835146347]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel2" unique_id=1701271167]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 362.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel2/VBoxContainer" unique_id=1252926129]
+layout_mode = 2
+text = "Select level"
+horizontal_alignment = 1
+
+[node name="Level1" type="Button" parent="CanvasLayer/Panel2/VBoxContainer" unique_id=1721704396]
+layout_mode = 2
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="CanvasLayer/Panel2/VBoxContainer" unique_id=259280825]
+layout_mode = 2
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="CanvasLayer/Panel2/VBoxContainer" unique_id=259946938]
+layout_mode = 2
+text = "Level 3"
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Panel2/VBoxContainer" unique_id=1616425504]
+layout_mode = 2
+text = "Back"
