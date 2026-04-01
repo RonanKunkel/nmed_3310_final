@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://d3vlnxu7pkymd" path="res://scenes/LVL1background.tscn" id="12_5g376"]
 [ext_resource type="PackedScene" uid="uid://votho2tyoxyi" path="res://scenes/endlevel1.tscn" id="14_aa35m"]
 [ext_resource type="PackedScene" uid="uid://e68140cr7dni" path="res://scenes/checkpoint.tscn" id="16_bxcpi"]
-[ext_resource type="AudioStream" uid="uid://ujs3yb5rt6r2" path="res://assets/music/lvl1_music.mp3" id="17_mbx00"]
+[ext_resource type="AudioStream" uid="uid://dvl75exjms0hu" path="res://assets/music/lvl1_music.mp3" id="17_mbx00"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbx00"]
 resource_name = "Ice_Stone"

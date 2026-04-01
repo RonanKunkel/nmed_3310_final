@@ -1,6 +1,7 @@
 extends AnimatableBody2D
 
 @export var linked_lever: Area2D
+@onready var sfx_door: AudioStreamPlayer = $sfx_door
 
 var is_open = false
 
@@ -24,10 +25,14 @@ func _on_lever_toggled(state: bool) -> void:
 func open():
 	if is_open == false:
 		is_open = true
+		sfx_door.pitch_scale = 0.7
+		sfx_door.play()
 		$AnimationPlayer.play("KeyDoor")
 		
 func close():
 	if is_open:
 		is_open = false
+		sfx_door.pitch_scale = 0.7
+		sfx_door.play()
 		$AnimationPlayer.play_backwards("KeyDoor")
 		
