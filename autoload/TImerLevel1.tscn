@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ixguns7a12u1"]
+
+[ext_resource type="Script" uid="uid://poh5qvuvvjc5" path="res://scripts/speedruntimerlvl1.gd" id="1_hrw5q"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1150380274]
+
+[node name="Label" type="Label" parent="." unique_id=1166615127]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_hrw5q")
+metadata/_edit_use_anchors_ = true

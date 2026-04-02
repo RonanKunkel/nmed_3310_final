@@ -19,6 +19,10 @@ run/main_scene="uid://dsggfn1u1ve5u"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://bj1hn86ubcs46"
 
+[autoload]
+
+SpeedRunTimer="*uid://dq6m34p1uy4bp"
+
 [display]
 
 window/size/viewport_width=640
