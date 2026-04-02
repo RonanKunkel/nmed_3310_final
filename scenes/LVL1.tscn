@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://votho2tyoxyi" path="res://scenes/endlevel1.tscn" id="14_aa35m"]
 [ext_resource type="PackedScene" uid="uid://e68140cr7dni" path="res://scenes/checkpoint.tscn" id="16_bxcpi"]
 [ext_resource type="AudioStream" uid="uid://dvl75exjms0hu" path="res://assets/music/lvl1_music.mp3" id="17_mbx00"]
+[ext_resource type="PackedScene" uid="uid://ixguns7a12u1" path="res://autoload/TImerLevel1.tscn" id="18_7c8wn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbx00"]
 resource_name = "Ice_Stone"
@@ -2462,3 +2463,5 @@ position = Vector2(5302, -976)
 stream = ExtResource("17_mbx00")
 volume_db = -10.035
 autoplay = true
+
+[node name="CanvasLayer" parent="." unique_id=1150380274 instance=ExtResource("18_7c8wn")]
