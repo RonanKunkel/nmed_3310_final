@@ -214,6 +214,24 @@ label_settings = SubResource("LabelSettings_wu84c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TutorialButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=291918571]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_8ln24")
+texture_pressed = SubResource("AtlasTexture_rtw2f")
+texture_hover = SubResource("AtlasTexture_oa1go")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/TutorialButton" unique_id=1718223810]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Tutorial"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="QuitButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=1376423863]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_rcqid")
@@ -233,6 +251,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=37534362]
+visible = false
 offset_left = 480.0
 offset_top = 227.0
 offset_right = 640.0
@@ -284,6 +303,7 @@ offset_bottom = 23.0
 text = "Controls:"
 
 [node name="LevelSelector" type="Panel" parent="CanvasLayer" unique_id=835146347]
+visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LevelSelector" unique_id=1701271167]
 layout_mode = 0
@@ -364,6 +384,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Credits" type="Panel" parent="CanvasLayer" unique_id=771987876]
+visible = false
 offset_right = 640.0
 offset_bottom = 360.0
 

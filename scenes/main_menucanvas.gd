@@ -9,6 +9,7 @@ func _ready():
 	credits.hide()
 	
 	$VBoxContainer/PlayButton.pressed.connect(_on_play_pressed)
+	$VBoxContainer/TutorialButton.pressed.connect(_on_tutorial_pressed)
 	$VBoxContainer/LevelSelectorButton.pressed.connect(_on_level_selector_pressed)
 	$VBoxContainer/QuitButton.pressed.connect(_on_quit_pressed)
 	$VBoxContainer/CreditsButton.pressed.connect(_on_credits_pressed)
@@ -20,6 +21,8 @@ func _ready():
 func _on_play_pressed():
 	get_tree().change_scene_to_file("res://scenes/LVL1.tscn")
 
+func _on_tutorial_pressed():
+	get_tree().change_scene_to_file("res://scenes/tutorial.tscn")
 
 func _on_level_selector_pressed():
 	main_buttons.hide()
