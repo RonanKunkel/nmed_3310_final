@@ -113,6 +113,7 @@ atlas = ExtResource("4_wu84c")
 region = Rect2(480, 224, 320, 32)
 
 [node name="main menu" type="Node2D" unique_id=27402964]
+position = Vector2(1, 0)
 
 [node name="LVL1background" parent="." unique_id=838031488 instance=ExtResource("1_bqqt6")]
 
