@@ -12,7 +12,7 @@ radius = 8.0
 height = 33.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wc8ta"]
-size = Vector2(35, 20)
+size = Vector2(24.5, 20)
 
 [sub_resource type="Animation" id="Animation_iv0qn"]
 resource_name = "Door Unlocked"
@@ -71,6 +71,7 @@ shape = SubResource("CapsuleShape2D_iv0qn")
 [node name="doorarea" type="Area2D" parent="." unique_id=427000357]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="doorarea" unique_id=1183653310]
+position = Vector2(-5.25, 0)
 shape = SubResource("RectangleShape2D_wc8ta")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1802575739]
@@ -78,9 +79,7 @@ libraries/ = SubResource("AnimationLibrary_mheew")
 
 [node name="sfx_lock" type="AudioStreamPlayer" parent="." unique_id=1771989943]
 stream = ExtResource("2_lw2t6")
-bus = &"Reverb"
 
 [node name="sfx_door" type="AudioStreamPlayer" parent="." unique_id=215195401]
 stream = ExtResource("3_mheew")
 volume_db = 7.5
-bus = &"Reverb"

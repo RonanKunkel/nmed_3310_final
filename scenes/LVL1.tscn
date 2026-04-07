@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://e68140cr7dni" path="res://scenes/checkpoint.tscn" id="16_bxcpi"]
 [ext_resource type="AudioStream" uid="uid://dvl75exjms0hu" path="res://assets/music/lvl1_music.mp3" id="17_mbx00"]
 [ext_resource type="PackedScene" uid="uid://ixguns7a12u1" path="res://autoload/TImerLevel1.tscn" id="18_7c8wn"]
+[ext_resource type="SpriteFrames" uid="uid://td2337gcc4r7" path="res://assets/checkpoints/checkpoint_level1_frames.tres" id="19_mdj31"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbx00"]
 resource_name = "Ice_Stone"
@@ -1840,11 +1841,11 @@ sources/1 = SubResource("TileSetAtlasSource_7c8wn")
 sources/2 = SubResource("TileSetAtlasSource_mdj31")
 sources/3 = SubResource("TileSetAtlasSource_re22t")
 
-[sub_resource type="Gradient" id="Gradient_5g376"]
+[sub_resource type="Gradient" id="Gradient_mdj31"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lbhrr"]
-gradient = SubResource("Gradient_5g376")
+gradient = SubResource("Gradient_mdj31")
 width = 86
 height = 86
 fill = 1
@@ -2070,10 +2071,9 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="PointLight2D" type="PointLight2D" parent="player" unique_id=621601898]
-position = Vector2(1, -10)
-scale = Vector2(7.413295, 5.045681)
+position = Vector2(0, -25)
+scale = Vector2(5.289, 3.6)
 color = Color(1, 0.6039216, 0.19215687, 1)
-energy = 1.98
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_lbhrr")
 texture_scale = 0.39
@@ -2456,12 +2456,42 @@ color = Color(0.30980393, 0.56078434, 0.7294118, 1)
 energy = 1.2
 texture = SubResource("GradientTexture2D_bxcpi")
 
-[node name="checkpoint" parent="." unique_id=1438819986 instance=ExtResource("16_bxcpi")]
-position = Vector2(5302, -976)
-
 [node name="sfx_lvl1" type="AudioStreamPlayer" parent="." unique_id=1302934896]
 stream = ExtResource("17_mbx00")
 volume_db = -10.035
 autoplay = true
 
 [node name="CanvasLayer" parent="." unique_id=1150380274 instance=ExtResource("18_7c8wn")]
+
+[node name="checkpoint" parent="." unique_id=1438819986 instance=ExtResource("16_bxcpi")]
+position = Vector2(5308, -973)
+
+[node name="AnimatedSprite2D" parent="checkpoint" index="0" unique_id=1279390427]
+position = Vector2(-19, 0)
+sprite_frames = ExtResource("19_mdj31")
+animation = &"activate"
+
+[node name="PointLight2D" parent="checkpoint" index="1" unique_id=695443580]
+position = Vector2(-19, -8)
+scale = Vector2(4.925, 3.6)
+color = Color(0.45882353, 0.654902, 0.2627451, 1)
+colorLow = Color(0.14509805, 0.3372549, 0.18039216, 1)
+colorHigh = Color(0.65882355, 0.7921569, 0.34509805, 1)
+
+[node name="checkpoint2" parent="." unique_id=1864866124 instance=ExtResource("16_bxcpi")]
+position = Vector2(6041, -701)
+
+[node name="AnimatedSprite2D" parent="checkpoint2" index="0" unique_id=1279390427]
+position = Vector2(-19, 0)
+sprite_frames = ExtResource("19_mdj31")
+animation = &"idle"
+
+[node name="PointLight2D" parent="checkpoint2" index="1" unique_id=695443580]
+position = Vector2(-19, -7)
+scale = Vector2(5.261, 3.6)
+color = Color(0.45882353, 0.654902, 0.2627451, 1)
+colorLow = Color(0.14509805, 0.3372549, 0.18039216, 1)
+colorHigh = Color(0.65882355, 0.7921569, 0.34509805, 1)
+
+[editable path="checkpoint"]
+[editable path="checkpoint2"]

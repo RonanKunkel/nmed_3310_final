@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://e68140cr7dni" path="res://scenes/checkpoint.tscn" id="16_frj82"]
 [ext_resource type="AudioStream" uid="uid://dcbfhwwqnebvi" path="res://assets/music/lvl2_music.mp3" id="17_cgwp0"]
 [ext_resource type="PackedScene" uid="uid://dfcj2bwyxsvsq" path="res://autoload/timerLVL2.tscn" id="18_27hyj"]
+[ext_resource type="SpriteFrames" uid="uid://cscgcxnfssglr" path="res://assets/checkpoints/checkpoint_level2_frames.tres" id="19_gdeff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptkaj"]
 resource_name = "Ice_Stone"
@@ -1795,7 +1796,7 @@ sources/3 = SubResource("TileSetAtlasSource_cgwp0")
 [sub_resource type="Gradient" id="Gradient_5g376"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_bhhal"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gdeff"]
 gradient = SubResource("Gradient_5g376")
 width = 86
 height = 86
@@ -1986,13 +1987,12 @@ zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
-[node name="PointLight2D" type="PointLight2D" parent="player" unique_id=55873637]
-position = Vector2(1, -10)
-scale = Vector2(7.413295, 5.045681)
+[node name="PointLight2D" type="PointLight2D" parent="player" unique_id=1083197233]
+position = Vector2(0, -25)
+scale = Vector2(6.289, 4.281)
 color = Color(1, 0.6039216, 0.19215687, 1)
-energy = 1.98
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_bhhal")
+texture = SubResource("GradientTexture2D_gdeff")
 texture_scale = 0.39
 script = ExtResource("6_t2o6n")
 energyMin = 1.25
@@ -2307,18 +2307,58 @@ libraries/ = SubResource("AnimationLibrary_gdeff")
 [node name="Area2D" parent="." unique_id=1105578825 instance=ExtResource("15_51lav")]
 position = Vector2(4117, 1224)
 
-[node name="checkpoint" parent="." unique_id=1438819986 instance=ExtResource("16_frj82")]
-position = Vector2(48, -895)
-
-[node name="checkpoint2" parent="." unique_id=602380182 instance=ExtResource("16_frj82")]
-position = Vector2(1336, -833)
-
-[node name="checkpoint3" parent="." unique_id=1501734773 instance=ExtResource("16_frj82")]
-position = Vector2(2422, -470)
-
 [node name="sfx_lvl2" type="AudioStreamPlayer" parent="." unique_id=1479235259]
 stream = ExtResource("17_cgwp0")
 volume_db = -9.123
 autoplay = true
 
 [node name="CanvasLayer" parent="." unique_id=1150380274 instance=ExtResource("18_27hyj")]
+
+[node name="checkpoint" parent="." unique_id=1438819986 instance=ExtResource("16_frj82")]
+position = Vector2(46, -895)
+
+[node name="AnimatedSprite2D" parent="checkpoint" index="0" unique_id=1279390427]
+position = Vector2(-15, 0)
+sprite_frames = ExtResource("19_gdeff")
+animation = &"idle"
+
+[node name="PointLight2D" parent="checkpoint" index="1" unique_id=695443580]
+position = Vector2(-14, -6.999977)
+scale = Vector2(4.3428884, 3.6795394)
+color = Color(0.4509804, 0.74509805, 0.827451, 1)
+colorLow = Color(0.23529412, 0.36862746, 0.54509807, 1)
+colorHigh = Color(0.6431373, 0.8666667, 0.85882354, 1)
+
+[node name="checkpoint2" parent="." unique_id=1028647549 instance=ExtResource("16_frj82")]
+position = Vector2(1406, -831)
+
+[node name="AnimatedSprite2D" parent="checkpoint2" index="0" unique_id=1279390427]
+position = Vector2(-15, 0)
+sprite_frames = ExtResource("19_gdeff")
+animation = &"idle"
+
+[node name="PointLight2D" parent="checkpoint2" index="1" unique_id=695443580]
+position = Vector2(-15, -7)
+scale = Vector2(5.289, 3.6)
+color = Color(0.4509804, 0.74509805, 0.827451, 1)
+colorLow = Color(0.23529412, 0.36862746, 0.54509807, 1)
+colorHigh = Color(0.6431373, 0.8666667, 0.85882354, 1)
+
+[node name="checkpoint3" parent="." unique_id=358095711 instance=ExtResource("16_frj82")]
+position = Vector2(2430, -463)
+
+[node name="AnimatedSprite2D" parent="checkpoint3" index="0" unique_id=1279390427]
+position = Vector2(-19, 0)
+sprite_frames = ExtResource("19_gdeff")
+animation = &"idle"
+
+[node name="PointLight2D" parent="checkpoint3" index="1" unique_id=695443580]
+position = Vector2(-19, -7)
+scale = Vector2(5.289, 3.6)
+color = Color(0.4509804, 0.74509805, 0.827451, 1)
+colorLow = Color(0.23529412, 0.36862746, 0.54509807, 1)
+colorHigh = Color(0.6431373, 0.8666667, 0.85882354, 1)
+
+[editable path="checkpoint"]
+[editable path="checkpoint2"]
+[editable path="checkpoint3"]

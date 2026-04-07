@@ -199,21 +199,18 @@ one_shot = true
 [node name="sfx_jump" type="AudioStreamPlayer" parent="." unique_id=614527965]
 stream = ExtResource("3_qlg0r")
 volume_db = 10.035
-bus = &"Reverb"
 
 [node name="sfx_death_scream" type="AudioStreamPlayer" parent="." unique_id=1214272622]
 stream = ExtResource("4_tuyoq")
-bus = &"Reverb"
 
 [node name="sfx_death_music" type="AudioStreamPlayer" parent="." unique_id=1900610838]
 stream = ExtResource("5_fjrip")
 
 [node name="sfx_run" type="AudioStreamPlayer" parent="." unique_id=1794512704]
-bus = &"Reverb"
 
 [node name="step_timer" type="Timer" parent="." unique_id=595502644]
 wait_time = 0.4
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
-[connection signal="timeout" from="step_timer" to="." method="_on_step_timer_timeout"]
 [connection signal="timeout" from="step_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="step_timer" to="." method="_on_step_timer_timeout"]

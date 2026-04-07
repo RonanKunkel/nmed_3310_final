@@ -82,12 +82,18 @@ var light_y := 0.0
 var target_light_y := 0.0
 var target_camera_y := 0.0
 
+var candle_base_energy: float
+var death_light_tween: Tween
+var candle_base_scale: float
+@export var death_light_fade_time: float = 2
 
 func _ready() -> void:
 	start_position = global_position
 	last_checkpoint = global_position
 	candle_start_pos = candle.position
 	camera_start_offset = camera.offset
+	candle_base_energy = candle.energy
+	candle_base_scale = candle.texture_scale
 	
 	if dev_label:
 		dev_label.visible = false
@@ -379,6 +385,23 @@ func die() -> void:
 	sfx_death_scream.play()
 	sfx_death_music.play()
 	play_player_anim("Death")
+	
+	if death_light_tween:
+		death_light_tween.kill()
+	
+	death_light_tween = create_tween()
+	death_light_tween.set_parallel(true)
+	death_light_tween.set_trans(Tween.TRANS_SINE)
+	death_light_tween.set_ease(Tween.EASE_OUT)
+	
+	death_light_tween.tween_property(candle, "energy", 0.0, death_light_fade_time)
+	death_light_tween.tween_property(candle, "texture_scale", candle_base_scale * 0.15, death_light_fade_time)
+	
+	death_light_tween.finished.connect(func():
+		candle.energy = 0.0
+		candle.texture_scale = 0.0
+	)
+	
 	death_timer.start()
 
 
@@ -390,6 +413,8 @@ func respawn_player() -> void:
 	global_position = last_checkpoint
 	is_dead = false
 	velocity = Vector2.ZERO
+	candle.energy = candle_base_energy
+	candle.texture_scale = candle_base_scale
 	play_player_anim("Idle")
 	get_tree().call_group("projectiles", "queue_free")
 	get_tree().call_group("lever", "reset")

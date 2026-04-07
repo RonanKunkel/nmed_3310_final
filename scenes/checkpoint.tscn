@@ -1,14 +1,36 @@
 [gd_scene format=3 uid="uid://e68140cr7dni"]
 
+[ext_resource type="Script" uid="uid://8syrcm8bi7sn" path="res://scenes/checkpoint_light.gd" id="1_vsimk"]
 [ext_resource type="Script" uid="uid://xsh3huq4utan" path="res://scripts/checkpoint.gd" id="1_yyywg"]
 [ext_resource type="AudioStream" uid="uid://h4j0xr7umy0t" path="res://assets/sounds/checkpoint.wav" id="2_ywqth"]
+
+[sub_resource type="Gradient" id="Gradient_svbv1"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ywqth"]
+gradient = SubResource("Gradient_svbv1")
+width = 86
+height = 86
+fill = 1
+fill_from = Vector2(0.49530515, 0.5093897)
+fill_to = Vector2(0.20422535, 0.74413145)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xam77"]
 size = Vector2(54, 46)
 
 [node name="checkpoint" type="Node2D" unique_id=1438819986]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1991338179]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1279390427]
+autoplay = "idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=695443580]
+position = Vector2(1, -10)
+scale = Vector2(7.413295, 5.045681)
+enabled = false
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ywqth")
+texture_scale = 0.39
+script = ExtResource("1_vsimk")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=833238117]
 script = ExtResource("1_yyywg")
