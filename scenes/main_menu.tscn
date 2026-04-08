@@ -251,7 +251,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="CanvasLayer" unique_id=37534362]
-visible = false
 offset_left = 480.0
 offset_top = 227.0
 offset_right = 640.0
@@ -383,7 +382,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Credits" type="Panel" parent="CanvasLayer" unique_id=771987876]
-visible = false
 offset_right = 640.0
 offset_bottom = 360.0
 
@@ -419,6 +417,96 @@ layout_mode = 0
 offset_left = 66.0
 offset_top = -2.0
 offset_right = 252.0
+offset_bottom = 24.0
+text = "Back"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timer" type="Panel" parent="CanvasLayer" unique_id=42096234]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/timer" unique_id=538331638]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.008333334
+anchor_right = 0.3328125
+anchor_bottom = 0.11388889
+offset_left = 1.0
+offset_top = 78.333336
+offset_right = 426.0
+offset_bottom = 316.33334
+
+[node name="name" type="TextureButton" parent="CanvasLayer/timer/VBoxContainer3" unique_id=2026438837]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_8ln24")
+texture_pressed = SubResource("AtlasTexture_rtw2f")
+texture_hover = SubResource("AtlasTexture_oa1go")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/timer/VBoxContainer3/name" unique_id=1738162800]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Timed run?"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timed" type="TextureButton" parent="CanvasLayer/timer/VBoxContainer3" unique_id=1283463773]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_wu84c")
+texture_pressed = SubResource("AtlasTexture_tbmy8")
+texture_hover = SubResource("AtlasTexture_jk1qb")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/timer/VBoxContainer3/timed" unique_id=397695575]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Yes!"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="untimed" type="TextureButton" parent="CanvasLayer/timer/VBoxContainer3" unique_id=2000911911]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_8ln24")
+texture_pressed = SubResource("AtlasTexture_rtw2f")
+texture_hover = SubResource("AtlasTexture_oa1go")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/timer/VBoxContainer3/untimed" unique_id=1078829160]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "no"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="CanvasLayer/timer/VBoxContainer3" unique_id=1411486094]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_3wgol")
+texture_pressed = SubResource("AtlasTexture_1acrt")
+texture_hover = SubResource("AtlasTexture_vr8o3")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/timer/VBoxContainer3/BackButton" unique_id=2104152630]
+layout_mode = 0
+offset_left = 226.0
+offset_top = -2.0
+offset_right = 412.0
 offset_bottom = 24.0
 text = "Back"
 label_settings = SubResource("LabelSettings_wu84c")

@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bqn2jebfssn0d" path="res://tutorialjump.gd" id="8_vrdqu"]
 [ext_resource type="PackedScene" uid="uid://bwnjcuoirdwau" path="res://scenes/lever.tscn" id="9_cmspm"]
 [ext_resource type="Script" uid="uid://tntlxqxk3ofo" path="res://scripts/tutorialtext.gd" id="10_ikfo1"]
+[ext_resource type="PackedScene" uid="uid://boqy84qyx0f70" path="res://scenes/endlevel3.tscn" id="11_g2equ"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4t6hg"]
 resource_name = "Ice_Stone"
@@ -1992,3 +1993,6 @@ of the block and jump out to clear the ceiling.
 
 [node name="Lever4" parent="." unique_id=1259469576 instance=ExtResource("9_cmspm")]
 position = Vector2(-423, -23)
+
+[node name="Area2D3" parent="." unique_id=1105578825 instance=ExtResource("11_g2equ")]
+position = Vector2(1205, -51)
