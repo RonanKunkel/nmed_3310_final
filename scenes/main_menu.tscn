@@ -243,10 +243,10 @@ stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/QuitButton" unique_id=614368596]
 layout_mode = 0
-offset_left = 224.0
-offset_top = -2.0
-offset_right = 410.0
-offset_bottom = 24.0
+offset_left = 217.0
+offset_top = -1.0
+offset_right = 403.0
+offset_bottom = 25.0
 text = "Quit"
 label_settings = SubResource("LabelSettings_wu84c")
 horizontal_alignment = 1
