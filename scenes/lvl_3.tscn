@@ -3108,7 +3108,7 @@ position = Vector2(871, -981)
 linked_lever = NodePath("../Lever")
 
 [node name="MushroomProjectileBlack3" parent="." unique_id=8786738 instance=ExtResource("24_27c8d")]
-position = Vector2(1663, -602)
+position = Vector2(1668, -602)
 
 [node name="MushroomProjectileBlack4" parent="." unique_id=505523742 instance=ExtResource("24_27c8d")]
 position = Vector2(1711, -940)

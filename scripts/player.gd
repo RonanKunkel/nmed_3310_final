@@ -88,6 +88,8 @@ var candle_base_scale: float
 @export var death_light_fade_time: float = 2
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	start_position = global_position
 	last_checkpoint = global_position
 	candle_start_pos = candle.position

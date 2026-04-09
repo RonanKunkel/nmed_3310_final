@@ -25,8 +25,16 @@ region = Rect2(960, 0, 320, 32)
 atlas = ExtResource("4_wu84c")
 region = Rect2(480, 0, 320, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a85y"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 0, 320, 32)
+
 [sub_resource type="LabelSettings" id="LabelSettings_wu84c"]
 font_size = 18
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h3lr"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 0, 320, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wu84c"]
 atlas = ExtResource("4_wu84c")
@@ -40,17 +48,25 @@ region = Rect2(960, 32, 320, 32)
 atlas = ExtResource("4_wu84c")
 region = Rect2(480, 32, 320, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl5e0"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 32, 320, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5dd4i"]
 atlas = ExtResource("4_wu84c")
 region = Rect2(0, 64, 320, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lgwnu"]
 atlas = ExtResource("4_wu84c")
-region = Rect2(480, 64, 320, 32)
+region = Rect2(960, 64, 320, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flqon"]
 atlas = ExtResource("4_wu84c")
-region = Rect2(960, 64, 320, 32)
+region = Rect2(480, 64, 320, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_engjn"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 64, 320, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcqid"]
 atlas = ExtResource("4_wu84c")
@@ -61,6 +77,10 @@ atlas = ExtResource("4_wu84c")
 region = Rect2(960, 96, 320, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7b55j"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 96, 320, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj67d"]
 atlas = ExtResource("4_wu84c")
 region = Rect2(480, 96, 320, 32)
 
@@ -76,6 +96,10 @@ region = Rect2(960, 128, 320, 32)
 atlas = ExtResource("4_wu84c")
 region = Rect2(480, 128, 320, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcusk"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 128, 320, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hstxw"]
 atlas = ExtResource("4_wu84c")
 region = Rect2(0, 160, 320, 32)
@@ -85,6 +109,10 @@ atlas = ExtResource("4_wu84c")
 region = Rect2(960, 160, 320, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gw5y6"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 160, 320, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4puye"]
 atlas = ExtResource("4_wu84c")
 region = Rect2(480, 160, 320, 32)
 
@@ -100,6 +128,10 @@ region = Rect2(960, 192, 320, 32)
 atlas = ExtResource("4_wu84c")
 region = Rect2(480, 192, 320, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_q13xq"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 192, 320, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3wgol"]
 atlas = ExtResource("4_wu84c")
 region = Rect2(0, 224, 320, 32)
@@ -109,6 +141,26 @@ atlas = ExtResource("4_wu84c")
 region = Rect2(960, 224, 320, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vr8o3"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 224, 320, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u43bj"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 224, 320, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvjdd"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 224, 320, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vcge"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 32, 320, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip0br"]
+atlas = ExtResource("4_wu84c")
+region = Rect2(480, 0, 320, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyero"]
 atlas = ExtResource("4_wu84c")
 region = Rect2(480, 224, 320, 32)
 
@@ -164,9 +216,11 @@ metadata/_edit_use_anchors_ = true
 
 [node name="PlayButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=2113520038]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../TutorialButton")
 texture_normal = SubResource("AtlasTexture_8ln24")
 texture_pressed = SubResource("AtlasTexture_rtw2f")
 texture_hover = SubResource("AtlasTexture_oa1go")
+texture_focused = SubResource("AtlasTexture_1a85y")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/PlayButton" unique_id=608363706]
@@ -180,11 +234,35 @@ label_settings = SubResource("LabelSettings_wu84c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TutorialButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=291918571]
+layout_mode = 2
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../LevelSelectorButton")
+texture_normal = SubResource("AtlasTexture_8ln24")
+texture_pressed = SubResource("AtlasTexture_rtw2f")
+texture_hover = SubResource("AtlasTexture_oa1go")
+texture_focused = SubResource("AtlasTexture_6h3lr")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/TutorialButton" unique_id=1718223810]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -2.0
+offset_right = 410.0
+offset_bottom = 24.0
+text = "Tutorial"
+label_settings = SubResource("LabelSettings_wu84c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="LevelSelectorButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=607543440]
 layout_mode = 2
+focus_neighbor_top = NodePath("../TutorialButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
 texture_normal = SubResource("AtlasTexture_wu84c")
 texture_pressed = SubResource("AtlasTexture_tbmy8")
 texture_hover = SubResource("AtlasTexture_jk1qb")
+texture_focused = SubResource("AtlasTexture_hl5e0")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/LevelSelectorButton" unique_id=1155306988]
@@ -200,9 +278,12 @@ vertical_alignment = 1
 
 [node name="CreditsButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=1664598426]
 layout_mode = 2
+focus_neighbor_top = NodePath("../LevelSelectorButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
 texture_normal = SubResource("AtlasTexture_5dd4i")
 texture_pressed = SubResource("AtlasTexture_lgwnu")
 texture_hover = SubResource("AtlasTexture_flqon")
+texture_focused = SubResource("AtlasTexture_engjn")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/CreditsButton" unique_id=1955531548]
@@ -216,29 +297,13 @@ label_settings = SubResource("LabelSettings_wu84c")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TutorialButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=291918571]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_8ln24")
-texture_pressed = SubResource("AtlasTexture_rtw2f")
-texture_hover = SubResource("AtlasTexture_oa1go")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/TutorialButton" unique_id=1718223810]
-layout_mode = 0
-offset_left = 224.0
-offset_top = -2.0
-offset_right = 410.0
-offset_bottom = 24.0
-text = "Tutorial"
-label_settings = SubResource("LabelSettings_wu84c")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="QuitButton" type="TextureButton" parent="CanvasLayer/VBoxContainer" unique_id=1376423863]
 layout_mode = 2
+focus_neighbor_top = NodePath("../CreditsButton")
 texture_normal = SubResource("AtlasTexture_rcqid")
 texture_pressed = SubResource("AtlasTexture_1ajci")
 texture_hover = SubResource("AtlasTexture_7b55j")
+texture_focused = SubResource("AtlasTexture_dj67d")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/QuitButton" unique_id=614368596]
@@ -318,9 +383,11 @@ offset_bottom = 360.0
 
 [node name="Level1" type="TextureButton" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=1281688859]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../Level2")
 texture_normal = SubResource("AtlasTexture_5pajh")
 texture_pressed = SubResource("AtlasTexture_j7ex8")
 texture_hover = SubResource("AtlasTexture_a8gd2")
+texture_focused = SubResource("AtlasTexture_tcusk")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/LevelSelector/VBoxContainer/Level1" unique_id=1732333849]
@@ -336,9 +403,12 @@ vertical_alignment = 1
 
 [node name="Level2" type="TextureButton" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=1140809808]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Level1")
+focus_neighbor_bottom = NodePath("../Level3")
 texture_normal = SubResource("AtlasTexture_hstxw")
 texture_pressed = SubResource("AtlasTexture_8egab")
 texture_hover = SubResource("AtlasTexture_gw5y6")
+texture_focused = SubResource("AtlasTexture_4puye")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/LevelSelector/VBoxContainer/Level2" unique_id=1086099616]
@@ -354,9 +424,12 @@ vertical_alignment = 1
 
 [node name="Level3" type="TextureButton" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=725986248]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Level2")
+focus_neighbor_bottom = NodePath("../BackButton")
 texture_normal = SubResource("AtlasTexture_svtp6")
 texture_pressed = SubResource("AtlasTexture_1dfpl")
 texture_hover = SubResource("AtlasTexture_qywvv")
+texture_focused = SubResource("AtlasTexture_q13xq")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/LevelSelector/VBoxContainer/Level3" unique_id=1326182495]
@@ -372,9 +445,11 @@ vertical_alignment = 1
 
 [node name="BackButton" type="TextureButton" parent="CanvasLayer/LevelSelector/VBoxContainer" unique_id=1075045945]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Level3")
 texture_normal = SubResource("AtlasTexture_3wgol")
 texture_pressed = SubResource("AtlasTexture_1acrt")
 texture_hover = SubResource("AtlasTexture_vr8o3")
+texture_focused = SubResource("AtlasTexture_u43bj")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/LevelSelector/VBoxContainer/BackButton" unique_id=167242507]
@@ -418,6 +493,7 @@ offset_bottom = 308.0
 texture_normal = SubResource("AtlasTexture_3wgol")
 texture_pressed = SubResource("AtlasTexture_1acrt")
 texture_hover = SubResource("AtlasTexture_vr8o3")
+texture_focused = SubResource("AtlasTexture_jvjdd")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/Credits/BackButton" unique_id=2004960460]
@@ -453,8 +529,6 @@ offset_bottom = 316.33334
 [node name="name" type="TextureButton" parent="CanvasLayer/timer/VBoxContainer3" unique_id=2026438837]
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_8ln24")
-texture_pressed = SubResource("AtlasTexture_rtw2f")
-texture_hover = SubResource("AtlasTexture_oa1go")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/timer/VBoxContainer3/name" unique_id=1738162800]
@@ -470,9 +544,11 @@ vertical_alignment = 1
 
 [node name="timed" type="TextureButton" parent="CanvasLayer/timer/VBoxContainer3" unique_id=1283463773]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../untimed")
 texture_normal = SubResource("AtlasTexture_wu84c")
 texture_pressed = SubResource("AtlasTexture_tbmy8")
 texture_hover = SubResource("AtlasTexture_jk1qb")
+texture_focused = SubResource("AtlasTexture_6vcge")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/timer/VBoxContainer3/timed" unique_id=397695575]
@@ -488,9 +564,12 @@ vertical_alignment = 1
 
 [node name="untimed" type="TextureButton" parent="CanvasLayer/timer/VBoxContainer3" unique_id=2000911911]
 layout_mode = 2
+focus_neighbor_top = NodePath("../timed")
+focus_neighbor_bottom = NodePath("../BackButton")
 texture_normal = SubResource("AtlasTexture_8ln24")
 texture_pressed = SubResource("AtlasTexture_rtw2f")
 texture_hover = SubResource("AtlasTexture_oa1go")
+texture_focused = SubResource("AtlasTexture_ip0br")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/timer/VBoxContainer3/untimed" unique_id=1078829160]
@@ -506,9 +585,11 @@ vertical_alignment = 1
 
 [node name="BackButton" type="TextureButton" parent="CanvasLayer/timer/VBoxContainer3" unique_id=1411486094]
 layout_mode = 2
+focus_neighbor_top = NodePath("../untimed")
 texture_normal = SubResource("AtlasTexture_3wgol")
 texture_pressed = SubResource("AtlasTexture_1acrt")
 texture_hover = SubResource("AtlasTexture_vr8o3")
+texture_focused = SubResource("AtlasTexture_xyero")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CanvasLayer/timer/VBoxContainer3/BackButton" unique_id=2104152630]
